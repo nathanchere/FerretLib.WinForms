@@ -95,8 +95,8 @@ namespace FerretLib.WinForms.Controls
         private void txtTag_KeyUp(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter){
-                if (!string.IsNullOrWhiteSpace(txtTag.Text)) 
-                    AddTag(txtTag.Text);
+                var text = txtTag.Text.Trim();
+                if (!string.IsNullOrEmpty(text)) AddTag(text);
                 txtTag.Text = "";
             }
         }
