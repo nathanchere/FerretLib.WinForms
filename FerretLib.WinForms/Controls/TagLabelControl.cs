@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -28,9 +29,7 @@ namespace FerretLib.WinForms.Controls
             SetStyle(ControlStyles.Opaque, false);
             BackColor = Color.Transparent;
 
-            backbufferContext = BufferedGraphicsManager.Current;
-
-            RecreateBuffers();
+            RecreateBuffer();
             Redraw();
         }
 
@@ -38,9 +37,8 @@ namespace FerretLib.WinForms.Controls
         {                                
             isDisposing = true;
             if (disposing)
-            {                
-                if (backbufferGraphics != null) backbufferGraphics.Dispose();
-                if (backbufferContext != null) backbufferContext.Dispose();
+            {
+                if (backbuffer != null) backbuffer.Dispose();                
                 if (components != null) components.Dispose();
             }
             base.Dispose(disposing);
@@ -77,9 +75,7 @@ namespace FerretLib.WinForms.Controls
 
         #region Rendering
         private bool isDisposing;
-        private BufferedGraphicsContext backbufferContext;
-        private BufferedGraphics backbufferGraphics;
-        private Graphics canvas;
+        private Bitmap backbuffer;
 
         private void ResizeControl()
         {
@@ -93,22 +89,25 @@ namespace FerretLib.WinForms.Controls
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            RecreateBuffers();
+            RecreateBuffer();
             Redraw();
         }
 
-        private void RecreateBuffers()
+        private void RecreateBuffer()
         {
-            if (backbufferContext == null || isDisposing) return;
+            if (isDisposing) return;
 
-            backbufferContext.MaximumBuffer = new Size(Math.Max(1, Width), Math.Max(1, Height));
-            if (backbufferGraphics != null) backbufferGraphics.Dispose();
+            var newBuffer = new Bitmap(Math.Max(Width, 1), Math.Max(Height, 1), PixelFormat.Format32bppPArgb);
 
-            backbufferGraphics = backbufferContext.Allocate(this.CreateGraphics(),
-                new Rectangle(0, 0, Math.Max(Width, 1), Math.Max(Height, 1)));           
+            if (backbuffer != null) {
+                using (var g = Graphics.FromImage(newBuffer)) {
+                    g.DrawImage(backbuffer, Point.Empty);
+                }
+                backbuffer.Dispose();
+            }
 
-            canvas = backbufferGraphics.Graphics;
-            canvas.SmoothingMode = SmoothingMode.None;            
+            backbuffer = newBuffer;            
+            
             DoInvalidate();
         }
 
@@ -125,33 +124,20 @@ namespace FerretLib.WinForms.Controls
         private void Redraw()
         {
             var font = new Font(FontFamily.GenericSerif, 14, FontStyle.Bold);
-            if (canvas == null) return;
-            canvas.Clear(Color.Transparent);
-            canvas.DrawString(Value, font, new SolidBrush(Color.Red), 0, 0);
-            // Force the control to both invalidate and update. 
+            if (backbuffer == null) return;
+            using (var canvas = Graphics.FromImage(backbuffer)) {
+                canvas.DrawString(Value, font, new SolidBrush(Color.Red), 0, 0);
+            }
             this.Refresh();
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            if (!isDisposing && backbufferGraphics != null) {
-                e.Graphics.Clear(Color.Transparent);
-                backbufferGraphics.Render(e.Graphics);
+            if (!isDisposing && backbuffer != null) {
+                e.Graphics.Clear(Color.Bisque);
+                e.Graphics.DrawImage(backbuffer, Point.Empty);
             }
         }
-
-        protected override void OnPaintBackground(PaintEventArgs e) { e.Graphics.Clear(Color.Transparent); }
-
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x00000020; //WS_EX_TRANSPARENT
-
-                return cp;
-            }
-        } 
         #endregion
     }
 }
