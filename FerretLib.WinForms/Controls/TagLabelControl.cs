@@ -17,6 +17,12 @@ namespace FerretLib.WinForms.Controls
         public event TagEvent DeleteClicked;
         public event TagEvent DoubleClicked;
 
+        private string _value;
+        private const int HEIGHT = 19;
+        private const int LEFT_WIDTH = 9;
+        private const int MARGIN = 3;
+        private const int RIGHT_WIDTH = 15;
+
         #region ctor
         private bool isDisposing;
 
@@ -24,7 +30,7 @@ namespace FerretLib.WinForms.Controls
 
         public TagLabelControl(string value)
         {
-            InitializeComponent();
+            InitializeComponent();          
             Value = value;
 
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor | ControlStyles.OptimizedDoubleBuffer, true);
@@ -52,11 +58,11 @@ namespace FerretLib.WinForms.Controls
         {
             get
             {
-                return lblText.Text;
+                return _value;
             }
             set
             {
-                lblText.Text = value;
+                _value = value;
                 ResizeControl();
             }
         }
@@ -78,23 +84,17 @@ namespace FerretLib.WinForms.Controls
         #region Rendering
 
         private Bitmap backbuffer;
-        private static Font font = new ResourceFont(Properties.Resources.font_PatrickHand).GetFont(12);
+        private static Font font = new ResourceFont(Properties.Resources.font_PatrickHand).GetFont(10);
 
         private void ResizeControl()
         {
-            var width = lblText.Width + 35;
-            lblText.Left = 10;
-            var height = 19;
-            MaximumSize = new Size(width, height);
-            MinimumSize = MaximumSize;
-            Width = width;
-        }
-
-        protected override void OnResize(EventArgs e)
-        {
-            base.OnResize(e);
-            RecreateBuffer();
-            Redraw();
+           using(var g = Graphics.FromImage(backbuffer)) {
+                int width = (int) g.MeasureString(Value, font).Width + LEFT_WIDTH + RIGHT_WIDTH + MARGIN + MARGIN;
+                MaximumSize = new Size(width, HEIGHT);
+                MinimumSize = MaximumSize;
+                Width = width;
+           }                        
+            
         }
 
         private void RecreateBuffer()
@@ -126,23 +126,27 @@ namespace FerretLib.WinForms.Controls
 
         private void Redraw()
         {
-            const int LEFT_WIDTH = 9;
-            const int MARGIN = 3;
-            const int RIGHT_WIDTH = 15;
-
             if (backbuffer == null) return;
             using (var canvas = Graphics.FromImage(backbuffer)) {
                 canvas.Clear(Color.Transparent);
-                //canvas.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.Half;
-                canvas.DrawImage(Properties.Resources.tagLabel_background_left, 0, 0);
+                canvas.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.Half;  
+                canvas.InterpolationMode = InterpolationMode.NearestNeighbor;                               
                 canvas.DrawImage(Properties.Resources.tagLabel_background, new Rectangle(LEFT_WIDTH, 0, Width - LEFT_WIDTH - RIGHT_WIDTH, Height));
-                canvas.DrawImage(Properties.Resources.tagLabel_background_right,
-                    Width - Properties.Resources.tagLabel_background_right.Width, 0);
-                canvas.DrawString(Value, font, Brushes.Black, 0, -4);
+                canvas.DrawImage(Properties.Resources.tagLabel_background_left, 0, 0);
+                canvas.DrawImage(Properties.Resources.tagLabel_background_right,Width - Properties.Resources.tagLabel_background_right.Width, 0);
+                canvas.DrawString(Value, font, Brushes.Black, LEFT_WIDTH, -1);
             }
             this.Refresh();
-        }
+        }        
+        #endregion
 
+        #region Event overrides
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+            RecreateBuffer();
+            Redraw();
+        }
         protected override void OnPaint(PaintEventArgs e)
         {
             if (!isDisposing && backbuffer != null) e.Graphics.DrawImage(backbuffer, Point.Empty);

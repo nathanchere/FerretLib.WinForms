@@ -15,23 +15,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblText = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblText
-            // 
-            this.lblText.AutoSize = true;
-            this.lblText.Location = new System.Drawing.Point(0, 2);
-            this.lblText.Margin = new System.Windows.Forms.Padding(0);
-            this.lblText.Name = "lblText";
-            this.lblText.Size = new System.Drawing.Size(104, 13);
-            this.lblText.TabIndex = 2;
-            this.lblText.Text = "Just an example gee";
-            this.lblText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblText.Visible = false;
-            this.lblText.DoubleClick += new System.EventHandler(this.lblText_DoubleClick);
             // 
             // btnDelete
             // 
@@ -42,6 +28,7 @@
             this.btnDelete.Size = new System.Drawing.Size(16, 16);
             this.btnDelete.TabIndex = 1;
             this.btnDelete.TabStop = false;
+            this.btnDelete.Visible = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // TagLabelControl
@@ -49,7 +36,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.lblText);
             this.Controls.Add(this.btnDelete);
             this.DoubleBuffered = true;
             this.Name = "TagLabelControl";
@@ -57,14 +43,12 @@
             this.DoubleClick += new System.EventHandler(this.lblText_DoubleClick);
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.PictureBox btnDelete;
-        private System.Windows.Forms.Label lblText;
 
     }
 }
