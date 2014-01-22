@@ -23,9 +23,10 @@ namespace FerretLib.WinForms.Controls
             InitializeComponent();
             Value = value;
 
-            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
-            SetStyle(ControlStyles.SupportsTransparentBackColor, false);
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor, true);
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            SetStyle(ControlStyles.Opaque, false);
+            BackColor = Color.Transparent;
 
             backbufferContext = BufferedGraphicsManager.Current;
 
@@ -104,10 +105,20 @@ namespace FerretLib.WinForms.Controls
             if (backbufferGraphics != null) backbufferGraphics.Dispose();
 
             backbufferGraphics = backbufferContext.Allocate(this.CreateGraphics(),
-                new Rectangle(0, 0, Math.Max(Width, 1), Math.Max(Height, 1)));
+                new Rectangle(0, 0, Math.Max(Width, 1), Math.Max(Height, 1)));           
 
             canvas = backbufferGraphics.Graphics;
-            canvas.SmoothingMode = SmoothingMode.None;
+            canvas.SmoothingMode = SmoothingMode.None;            
+            DoInvalidate();
+        }
+
+        private void DoInvalidate()
+        {
+            if (Parent != null) {
+                Rectangle rc = new Rectangle(this.Location, this.Size);
+                Parent.Invalidate(rc, true);
+            }
+            //backbufferContext.Invalidate();            
             Invalidate();
         }
 
@@ -116,19 +127,31 @@ namespace FerretLib.WinForms.Controls
             var font = new Font(FontFamily.GenericSerif, 14, FontStyle.Bold);
             if (canvas == null) return;
             canvas.Clear(Color.Transparent);
-            canvas.DrawString("Test", font, new SolidBrush(Color.Red), 0, 0);
+            canvas.DrawString(Value, font, new SolidBrush(Color.Red), 0, 0);
             // Force the control to both invalidate and update. 
             this.Refresh();
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            // If we've initialized the backbuffer properly, render it on the control. 
-            // Otherwise, do just the standard control paint.
-            if (!isDisposing && backbufferGraphics != null)
+            if (!isDisposing && backbufferGraphics != null) {
+                e.Graphics.Clear(Color.Transparent);
                 backbufferGraphics.Render(e.Graphics);
+            }
         }
 
+        protected override void OnPaintBackground(PaintEventArgs e) { e.Graphics.Clear(Color.Transparent); }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x00000020; //WS_EX_TRANSPARENT
+
+                return cp;
+            }
+        } 
         #endregion
     }
 }
