@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace FerretLib.WinForms.Controls
@@ -84,6 +79,7 @@ namespace FerretLib.WinForms.Controls
         #region Rendering
 
         private Bitmap backbuffer;
+        private bool _drawDeleteButton;
         private static Font font = new ResourceFont(Properties.Resources.font_PatrickHand).GetFont(10);
 
         private void ResizeControl()
@@ -141,6 +137,27 @@ namespace FerretLib.WinForms.Controls
         #endregion
 
         #region Event overrides
+        protected override void OnMouseHover(EventArgs e)
+        {
+ 	        base.OnMouseHover(e);           
+            _drawDeleteButton = true;            
+            DoInvalidate();
+        }
+
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            base.OnMouseLeave(e);
+            _drawDeleteButton = false;
+            Cursor = Cursors.Default;
+            DoInvalidate();
+        }
+
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+            Cursor = btnDelete.DisplayRectangle.Contains(Cursor.Position) ? Cursors.Hand : Cursors.Default;
+        }
+
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
