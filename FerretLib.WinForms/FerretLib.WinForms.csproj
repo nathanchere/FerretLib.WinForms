@@ -54,12 +54,16 @@
     <Compile Include="Controls\TagListControl.Designer.cs">
       <DependentUpon>TagListControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TransparentControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ResoureceFontLoader.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controls\TagLabelControl.resx">
@@ -74,7 +78,18 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\font_GloriaHallelujah.ttf" />
+    <None Include="Resources\font_PatrickHand.ttf" />
     <None Include="Resources\icon_round_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tagLabel_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tagLabel_background_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tagLabel_background_right.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

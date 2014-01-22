@@ -30,10 +30,10 @@
         {
             this.tagPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.txtTag = new System.Windows.Forms.TextBox();
-            this.tagLabelControl1 = new TagLabelControl();
-            this.tagLabelControl2 = new TagLabelControl();
-            this.tagLabelControl3 = new TagLabelControl();
-            this.tagLabelControl4 = new TagLabelControl();
+            this.tagLabelControl1 = new FerretLib.WinForms.Controls.TagLabelControl();
+            this.tagLabelControl2 = new FerretLib.WinForms.Controls.TagLabelControl();
+            this.tagLabelControl3 = new FerretLib.WinForms.Controls.TagLabelControl();
+            this.tagLabelControl4 = new FerretLib.WinForms.Controls.TagLabelControl();
             this.tagPanel.SuspendLayout();
             this.SuspendLayout();
             // 
