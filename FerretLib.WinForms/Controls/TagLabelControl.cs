@@ -18,15 +18,17 @@ namespace FerretLib.WinForms.Controls
         public event TagEvent DoubleClicked;
 
         #region ctor
+        private bool isDisposing;
+
         public TagLabelControl() : this("New Tag") { }
+
         public TagLabelControl(string value)
         {
             InitializeComponent();
             Value = value;
 
-            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor, true);
-            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
-            SetStyle(ControlStyles.Opaque, false);
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor | ControlStyles.OptimizedDoubleBuffer, true);
+            SetStyle(ControlStyles.Opaque | ControlStyles.FixedHeight, false);
             BackColor = Color.Transparent;
 
             RecreateBuffer();
@@ -74,8 +76,9 @@ namespace FerretLib.WinForms.Controls
         #endregion        
 
         #region Rendering
-        private bool isDisposing;
+
         private Bitmap backbuffer;
+        private static Font font = new ResourceFont(Properties.Resources.font_PatrickHand).GetFont(13);
 
         private void ResizeControl()
         {
@@ -122,8 +125,7 @@ namespace FerretLib.WinForms.Controls
         }
 
         private void Redraw()
-        {
-            var font = new Font(FontFamily.GenericSerif, 14, FontStyle.Bold);
+        {            
             if (backbuffer == null) return;
             using (var canvas = Graphics.FromImage(backbuffer)) {
                 canvas.Clear(Color.Transparent);
@@ -134,10 +136,7 @@ namespace FerretLib.WinForms.Controls
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            if (!isDisposing && backbuffer != null) {
-                //e.Graphics.Clear(Color.Bisque);
-                e.Graphics.DrawImage(backbuffer, Point.Empty);
-            }
+            if (!isDisposing && backbuffer != null) e.Graphics.DrawImage(backbuffer, Point.Empty);
         }
         #endregion
     }

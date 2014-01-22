@@ -61,6 +61,26 @@ namespace FerretLib.WinForms.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] font_GloriaHallelujah {
+            get {
+                object obj = ResourceManager.GetObject("font_GloriaHallelujah", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] font_PatrickHand {
+            get {
+                object obj = ResourceManager.GetObject("font_PatrickHand", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap icon_round_delete {

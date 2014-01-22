@@ -63,6 +63,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ResoureceFontLoader.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controls\TagLabelControl.resx">
@@ -77,6 +78,8 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\font_GloriaHallelujah.ttf" />
+    <None Include="Resources\font_PatrickHand.ttf" />
     <None Include="Resources\icon_round_delete.png" />
   </ItemGroup>
   <ItemGroup>
