@@ -78,7 +78,7 @@ namespace FerretLib.WinForms.Controls
         #region Rendering
 
         private Bitmap backbuffer;
-        private static Font font = new ResourceFont(Properties.Resources.font_PatrickHand).GetFont(13);
+        private static Font font = new ResourceFont(Properties.Resources.font_PatrickHand).GetFont(12);
 
         private void ResizeControl()
         {
@@ -125,11 +125,20 @@ namespace FerretLib.WinForms.Controls
         }
 
         private void Redraw()
-        {            
+        {
+            const int LEFT_WIDTH = 9;
+            const int MARGIN = 3;
+            const int RIGHT_WIDTH = 15;
+
             if (backbuffer == null) return;
             using (var canvas = Graphics.FromImage(backbuffer)) {
                 canvas.Clear(Color.Transparent);
-                canvas.DrawString(Value, font, new SolidBrush(Color.Red), 0, 0);
+                //canvas.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.Half;
+                canvas.DrawImage(Properties.Resources.tagLabel_background_left, 0, 0);
+                canvas.DrawImage(Properties.Resources.tagLabel_background, new Rectangle(LEFT_WIDTH, 0, Width - LEFT_WIDTH - RIGHT_WIDTH, Height));
+                canvas.DrawImage(Properties.Resources.tagLabel_background_right,
+                    Width - Properties.Resources.tagLabel_background_right.Width, 0);
+                canvas.DrawString(Value, font, Brushes.Black, 0, -4);
             }
             this.Refresh();
         }
