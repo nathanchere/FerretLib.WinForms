@@ -79,8 +79,9 @@ namespace FerretLib.WinForms.Controls
 
         private void ResizeControl()
         {
-            var width = lblText.Width + 18;
-            var height = 20;
+            var width = lblText.Width + 35;
+            lblText.Left = 10;
+            var height = 19;
             MaximumSize = new Size(width, height);
             MinimumSize = MaximumSize;
             Width = width;
@@ -116,8 +117,7 @@ namespace FerretLib.WinForms.Controls
             if (Parent != null) {
                 Rectangle rc = new Rectangle(this.Location, this.Size);
                 Parent.Invalidate(rc, true);
-            }
-            //backbufferContext.Invalidate();            
+            }                     
             Invalidate();
         }
 
@@ -126,6 +126,7 @@ namespace FerretLib.WinForms.Controls
             var font = new Font(FontFamily.GenericSerif, 14, FontStyle.Bold);
             if (backbuffer == null) return;
             using (var canvas = Graphics.FromImage(backbuffer)) {
+                canvas.Clear(Color.Transparent);
                 canvas.DrawString(Value, font, new SolidBrush(Color.Red), 0, 0);
             }
             this.Refresh();
@@ -134,7 +135,7 @@ namespace FerretLib.WinForms.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             if (!isDisposing && backbuffer != null) {
-                e.Graphics.Clear(Color.Bisque);
+                //e.Graphics.Clear(Color.Bisque);
                 e.Graphics.DrawImage(backbuffer, Point.Empty);
             }
         }
