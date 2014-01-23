@@ -68,6 +68,15 @@ namespace FerretLib.WinForms.Controls
         #endregion
 
         #region Input events
+        
+        private void Control_Click(object sender, EventArgs e)
+        {
+            if (IsCursorOverDeleteButton())
+            {
+                if (DeleteClicked != null) DeleteClicked(this, Value);
+            }
+        }
+
         private void Control_DoubleClick(object sender, EventArgs e)
         {
             if (IsCursorOverDeleteButton())
@@ -187,7 +196,6 @@ namespace FerretLib.WinForms.Controls
         {
             return _deleteButtonRegion.Contains(PointToClient(Cursor.Position));
         }
-
         #endregion
     }
 }
