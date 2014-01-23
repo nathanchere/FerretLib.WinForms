@@ -68,16 +68,15 @@ namespace FerretLib.WinForms.Controls
         #endregion
 
         #region Input events
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void Control_DoubleClick(object sender, EventArgs e)
         {
-            if (DeleteClicked != null)
-                DeleteClicked(this, Value);
-        }
+            if (IsCursorOverDeleteButton())
+            {
+                if (DeleteClicked != null) DeleteClicked(this, Value);
+                return;
+            }
 
-        private void lblText_DoubleClick(object sender, EventArgs e)
-        {
-            if (DoubleClicked != null)
-                DoubleClicked(this, Value);
+            if (DoubleClicked != null) DoubleClicked(this, Value);
         }
         #endregion
 

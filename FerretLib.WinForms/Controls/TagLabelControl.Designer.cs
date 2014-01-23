@@ -25,7 +25,7 @@
             this.DoubleBuffered = true;
             this.Name = "TagLabelControl";
             this.Size = new System.Drawing.Size(176, 20);
-            this.DoubleClick += new System.EventHandler(this.lblText_DoubleClick);
+            this.DoubleClick += new System.EventHandler(this.Control_DoubleClick);
             this.ResumeLayout(false);
 
         }
