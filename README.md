@@ -7,6 +7,7 @@ Will gradually move relevant code from individual projects to here.
 
 * TagList
 A control intended for displaying and editing tag lists as commonly used for things like blog posts.
+![](http://ferretallica.github.io/ferretlib_winforms_taglist.gif)
 
 * ResourceFontLoader
 Helper class for loading fonts embedded as resources
@@ -18,8 +19,6 @@ TODO:
 * Allow duplicate tags
 * Read-only mode (don't display tag input, process edit events etc)
 * Autocomplete / tag suggestions
-
-Nice but unlikely any time soon:
 * More UI polish (hover effects, better transparency etc)
 * Draw  tags from scratch (minimal/no bitmap resources)
 * Look and feel customisation (font, size, colour etc)
