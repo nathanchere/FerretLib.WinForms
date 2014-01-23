@@ -91,6 +91,7 @@ namespace FerretLib.WinForms.Controls
                 Width = width;
            }                        
             
+            _deleteButtonRegion = new Rectangle(Width - 18, 2,16,16);
         }
 
         private void RecreateBuffer()
@@ -130,6 +131,8 @@ namespace FerretLib.WinForms.Controls
                 canvas.DrawImage(Properties.Resources.tagLabel_background, new Rectangle(LEFT_WIDTH, 0, Width - LEFT_WIDTH - RIGHT_WIDTH, Height));
                 canvas.DrawImage(Properties.Resources.tagLabel_background_left, 0, 0);
                 canvas.DrawImage(Properties.Resources.tagLabel_background_right,Width - Properties.Resources.tagLabel_background_right.Width, 0);
+                if(_drawDeleteButton)
+                    canvas.DrawImage(Properties.Resources.icon_round_delete,Width - 18, 2);
                 canvas.DrawString(Value, font, Brushes.Black, LEFT_WIDTH, -1);
             }
             this.Refresh();
@@ -155,7 +158,7 @@ namespace FerretLib.WinForms.Controls
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
-            Cursor = btnDelete.DisplayRectangle.Contains(Cursor.Position) ? Cursors.Hand : Cursors.Default;
+            Cursor = IsCursorOverDeleteButton() ? Cursors.Hand : Cursors.Default;
         }
 
         protected override void OnResize(EventArgs e)
@@ -168,6 +171,15 @@ namespace FerretLib.WinForms.Controls
         {
             if (!isDisposing && backbuffer != null) e.Graphics.DrawImage(backbuffer, Point.Empty);
         }
+        #endregion
+
+        #region Misc logic
+        private Rectangle _deleteButtonRegion;
+        private bool IsCursorOverDeleteButton()
+        {            
+            return _deleteButtonRegion.Contains(PointToClient(Cursor.Position));
+        }
+
         #endregion
     }
 }
