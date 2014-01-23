@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
@@ -9,25 +8,32 @@ using System.Text;
 
 namespace FerretLib.WinForms
 {
-    public class ResourceFont
+
+    /// <summary>
+    /// WARNING: Do not use. PrivateFontCollection is a useless piece of shit with a fatal AccessViolationException bug which
+    /// has been reported repeatedly since at least 2003 and still not fixed. Love your work Microsoft.
+    /// </summary>
+
+    public class ResourceFont : IDisposable
     {
+        [DllImport("gdi32.dll")]
+        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [In] ref uint pcFonts);
+
         private PrivateFontCollection _font;
+
+        private IntPtr _fontPointer;
+        private GCHandle _handle;
 
         public ResourceFont(byte[] rawFont)
         {
-            System.IntPtr data = new IntPtr();
-            try
+            _font = new PrivateFontCollection();
+            using (var stream = new MemoryStream(rawFont))
             {
-                _font = new PrivateFontCollection();
-                using (var stream = new MemoryStream(rawFont)) {
-                    data = Marshal.AllocCoTaskMem((int)stream.Length);
-                    Marshal.Copy(rawFont, 0, data, (int)stream.Length);
-                    _font.AddMemoryFont(data, (int)stream.Length);
-                }                
-            }
-            finally
-            {
-                Marshal.FreeCoTaskMem(data);
+                _handle = GCHandle.Alloc(rawFont, GCHandleType.Pinned);
+                _fontPointer = _handle.AddrOfPinnedObject();
+                _font.AddMemoryFont(_fontPointer, (int)stream.Length);
+                uint dummy = 0;
+                AddFontMemResourceEx(_fontPointer, (uint)stream.Length, IntPtr.Zero, ref dummy);                
             }
         }
 
@@ -35,6 +41,12 @@ namespace FerretLib.WinForms
         {
             if (_font == null || _font.Families.Length == 0) throw new InvalidDataException("No font data loaded");
             return new Font(_font.Families[0], ems);
+        }
+
+        public void Dispose()
+        {
+            if(_handle != null) _handle.Free();
+            if (_font != null) _font.Dispose();
         }
     }
 }

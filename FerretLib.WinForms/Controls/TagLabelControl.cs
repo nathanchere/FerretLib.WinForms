@@ -93,7 +93,7 @@ namespace FerretLib.WinForms.Controls
 
         private Bitmap backbuffer;
         private bool _drawDeleteButton;
-        private static Font font = new ResourceFont(Properties.Resources.font_PatrickHand).GetFont(10);
+        private static Font font = new Font("Buxton Sketch", 11);
 
         private void ResizeControl()
         {
@@ -139,18 +139,25 @@ namespace FerretLib.WinForms.Controls
         {
             if (backbuffer == null)
                 return;
-            using (var canvas = Graphics.FromImage(backbuffer)) {
-                canvas.Clear(Color.Transparent);
-                canvas.PixelOffsetMode = PixelOffsetMode.Half;
-                canvas.InterpolationMode = InterpolationMode.NearestNeighbor;
-                canvas.DrawImage(Properties.Resources.tagLabel_background, new Rectangle(LEFT_WIDTH, 0, Width - LEFT_WIDTH - RIGHT_WIDTH, Height));
-                canvas.DrawImage(Properties.Resources.tagLabel_background_left, 0, 0);
-                canvas.DrawImage(Properties.Resources.tagLabel_background_right, Width - Properties.Resources.tagLabel_background_right.Width, 0);
-                if (_drawDeleteButton)
-                    canvas.DrawImage(Properties.Resources.icon_round_delete, _deleteButtonRegion);
-                canvas.DrawString(Value, font, Brushes.Black, LEFT_WIDTH, -1);
+            try
+            {
+                using (var canvas = Graphics.FromImage(backbuffer))
+                {
+                    canvas.Clear(Color.Transparent);
+                    canvas.PixelOffsetMode = PixelOffsetMode.Half;
+                    canvas.InterpolationMode = InterpolationMode.NearestNeighbor;
+                    canvas.DrawImage(Properties.Resources.tagLabel_background, new Rectangle(LEFT_WIDTH, 0, Width - LEFT_WIDTH - RIGHT_WIDTH, Height));
+                    canvas.DrawImage(Properties.Resources.tagLabel_background_left, 0, 0);
+                    canvas.DrawImage(Properties.Resources.tagLabel_background_right, Width - Properties.Resources.tagLabel_background_right.Width, 0);
+                    if (_drawDeleteButton)
+                        canvas.DrawImage(Properties.Resources.icon_round_delete, _deleteButtonRegion);
+
+                    canvas.DrawString(Value, font, Brushes.Black, LEFT_WIDTH, 1);
+                }
             }
+            catch {  }
             Refresh();
+            
         }
         #endregion
         #region Event overrides
