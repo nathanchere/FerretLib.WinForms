@@ -9,6 +9,11 @@ using System.Text;
 namespace FerretLib.WinForms
 {
 
+    /// <summary>
+    /// WARNING: Do not use. PrivateFontCollection is a useless piece of shit with a fatal AccessViolationException bug which
+    /// has been reported repeatedly since at least 2003 and still not fixed. Love your work Microsoft.
+    /// </summary>
+
     public class ResourceFont : IDisposable
     {
         [DllImport("gdi32.dll")]
@@ -44,34 +49,4 @@ namespace FerretLib.WinForms
             if (_font != null) _font.Dispose();
         }
     }
-
-    //public class ResourceFont
-    //{
-    //    [DllImport("gdi32.dll")]
-    //    private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont, IntPtr pdv, [In] ref uint pcFonts);
-
-    //    private PrivateFontCollection _font;
-
-    //    public ResourceFont(byte[] rawFont)
-    //    {
-    //        _font = new PrivateFontCollection();
-    //        using (var stream = new MemoryStream(rawFont))
-    //        {
-    //            var pinnedArray = GCHandle.Alloc(rawFont, GCHandleType.Normal);
-    //            var pointer = pinnedArray.AddrOfPinnedObject();
-    //            _font.AddMemoryFont(pointer, (int)stream.Length);
-    //            uint dummy = 0;
-    //            AddFontMemResourceEx((IntPtr)pointer, (uint)stream.Length, IntPtr.Zero, ref dummy);
-    //            pinnedArray.Free();
-    //        }
-    //    }
-
-    //    public Font GetFont(float ems)
-    //    {
-    //        if (_font == null || _font.Families.Length == 0) throw new InvalidDataException("No font data loaded");
-    //        return new Font(_font.Families[0], ems);
-    //    }
-    //}
-
-
 }
