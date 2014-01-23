@@ -36,9 +36,10 @@ namespace FerretLib.WinForms.Demo
             // 
             // tagList
             // 
-            this.tagList.Location = new System.Drawing.Point(31, 27);
+            this.tagList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tagList.Location = new System.Drawing.Point(0, 0);
             this.tagList.Name = "tagList";
-            this.tagList.Size = new System.Drawing.Size(315, 127);
+            this.tagList.Size = new System.Drawing.Size(617, 280);
             this.tagList.TabIndex = 0;
             this.tagList.Tags = ((System.Collections.Generic.List<string>)(resources.GetObject("tagList.Tags")));
             // 
@@ -46,7 +47,7 @@ namespace FerretLib.WinForms.Demo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(835, 440);
+            this.ClientSize = new System.Drawing.Size(617, 280);
             this.Controls.Add(this.tagList);
             this.Name = "frmMain";
             this.Text = "FerretLib.WinForms demo";

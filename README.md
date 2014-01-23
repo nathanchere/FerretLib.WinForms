@@ -19,5 +19,7 @@ TODO:
 * Read-only mode (don't display tag input, process edit events etc)
 * Autocomplete / tag suggestions
 
-Maybe but unlikely:
-* More UI polish
+Nice but unlikely any time soon:
+* More UI polish (hover effects, better transparency etc)
+* Draw  tags from scratch (minimal/no bitmap resources)
+* Look and feel customisation (font, size, colour etc)

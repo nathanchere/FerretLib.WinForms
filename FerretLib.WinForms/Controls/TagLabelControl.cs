@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Data;
 using System.Drawing.Drawing2D;
@@ -88,14 +89,23 @@ namespace FerretLib.WinForms.Controls
 
         private void ResizeControl()
         {
-           using(var g = Graphics.FromImage(backbuffer)) {
-                int width = (int) g.MeasureString(Value, font).Width + LEFT_WIDTH + RIGHT_WIDTH + MARGIN + MARGIN;
-                MaximumSize = new Size(width, HEIGHT);
-                MinimumSize = MaximumSize;
-                Width = width;
-           }                        
-            
+            try
+            {
+                using (var g = Graphics.FromImage(backbuffer))
+                {
+                    int width = (int) g.MeasureString(Value, font).Width + LEFT_WIDTH + RIGHT_WIDTH + MARGIN + MARGIN;
+                    MaximumSize = new Size(width, HEIGHT);
+                    MinimumSize = MaximumSize;
+                    Width = width;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
         }
+
+    
 
         private void RecreateBuffer()
         {
