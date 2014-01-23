@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
 using System.Drawing;
-using System.Data;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace FerretLib.WinForms.Controls
@@ -27,11 +21,13 @@ namespace FerretLib.WinForms.Controls
         #region ctor
         private bool isDisposing;
 
-        public TagLabelControl() : this("New Tag") { }
+        public TagLabelControl() : this("New Tag")
+        {
+        }
 
         public TagLabelControl(string value)
         {
-            InitializeComponent();          
+            InitializeComponent();
             Value = value;
 
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.SupportsTransparentBackColor | ControlStyles.OptimizedDoubleBuffer, true);
@@ -43,12 +39,13 @@ namespace FerretLib.WinForms.Controls
         }
 
         protected override void Dispose(bool disposing)
-        {                                
+        {
             isDisposing = true;
-            if (disposing)
-            {
-                if (backbuffer != null) backbuffer.Dispose();                
-                if (components != null) components.Dispose();
+            if (disposing) {
+                if (backbuffer != null)
+                    backbuffer.Dispose();
+                if (components != null)
+                    components.Dispose();
             }
             base.Dispose(disposing);
         }
@@ -71,45 +68,49 @@ namespace FerretLib.WinForms.Controls
         #endregion
 
         #region Input events
-        private void btnDelete_Click(object sender, EventArgs e)
+        
+        private void Control_Click(object sender, EventArgs e)
         {
-            if (DeleteClicked != null) DeleteClicked(this, Value);
+            if (IsCursorOverDeleteButton())
+            {
+                if (DeleteClicked != null) DeleteClicked(this, Value);
+            }
         }
 
-        private void lblText_DoubleClick(object sender, EventArgs e)
+        private void Control_DoubleClick(object sender, EventArgs e)
         {
+            if (IsCursorOverDeleteButton())
+            {
+                if (DeleteClicked != null) DeleteClicked(this, Value);
+                return;
+            }
+
             if (DoubleClicked != null) DoubleClicked(this, Value);
         }
-        #endregion        
+        #endregion
 
         #region Rendering
 
         private Bitmap backbuffer;
+        private bool _drawDeleteButton;
         private static Font font = new ResourceFont(Properties.Resources.font_PatrickHand).GetFont(10);
 
         private void ResizeControl()
         {
-            try
-            {
-                using (var g = Graphics.FromImage(backbuffer))
-                {
-                    int width = (int) g.MeasureString(Value, font).Width + LEFT_WIDTH + RIGHT_WIDTH + MARGIN + MARGIN;
-                    MaximumSize = new Size(width, HEIGHT);
-                    MinimumSize = MaximumSize;
-                    Width = width;
-                }
+            using (var g = Graphics.FromImage(backbuffer)) {
+                int width = (int)g.MeasureString(Value, font).Width + LEFT_WIDTH + RIGHT_WIDTH + MARGIN + MARGIN;
+                MaximumSize = new Size(width, HEIGHT);
+                MinimumSize = MaximumSize;
+                Width = width;
             }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-            }
-        }
 
-    
+            _deleteButtonRegion = new Rectangle(Width - 18, 1, 16, 16);
+        }
 
         private void RecreateBuffer()
         {
-            if (isDisposing) return;
+            if (isDisposing)
+                return;
 
             var newBuffer = new Bitmap(Math.Max(Width, 1), Math.Max(Height, 1), PixelFormat.Format32bppPArgb);
 
@@ -120,8 +121,8 @@ namespace FerretLib.WinForms.Controls
                 backbuffer.Dispose();
             }
 
-            backbuffer = newBuffer;            
-            
+            backbuffer = newBuffer;
+
             DoInvalidate();
         }
 
@@ -130,27 +131,52 @@ namespace FerretLib.WinForms.Controls
             if (Parent != null) {
                 Rectangle rc = new Rectangle(this.Location, this.Size);
                 Parent.Invalidate(rc, true);
-            }                     
+            }
             Invalidate();
         }
 
         private void Redraw()
         {
-            if (backbuffer == null) return;
+            if (backbuffer == null)
+                return;
             using (var canvas = Graphics.FromImage(backbuffer)) {
                 canvas.Clear(Color.Transparent);
-                canvas.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.Half;  
-                canvas.InterpolationMode = InterpolationMode.NearestNeighbor;                               
+                canvas.PixelOffsetMode = PixelOffsetMode.Half;
+                canvas.InterpolationMode = InterpolationMode.NearestNeighbor;
                 canvas.DrawImage(Properties.Resources.tagLabel_background, new Rectangle(LEFT_WIDTH, 0, Width - LEFT_WIDTH - RIGHT_WIDTH, Height));
                 canvas.DrawImage(Properties.Resources.tagLabel_background_left, 0, 0);
-                canvas.DrawImage(Properties.Resources.tagLabel_background_right,Width - Properties.Resources.tagLabel_background_right.Width, 0);
+                canvas.DrawImage(Properties.Resources.tagLabel_background_right, Width - Properties.Resources.tagLabel_background_right.Width, 0);
+                if (_drawDeleteButton)
+                    canvas.DrawImage(Properties.Resources.icon_round_delete, _deleteButtonRegion);
                 canvas.DrawString(Value, font, Brushes.Black, LEFT_WIDTH, -1);
             }
-            this.Refresh();
-        }        
+            Refresh();
+        }
         #endregion
-
         #region Event overrides
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            base.OnMouseLeave(e);
+            Cursor = Cursors.Default;
+
+            if (_drawDeleteButton) {
+                _drawDeleteButton = false;
+                Redraw();
+            }
+
+        }
+
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+            Cursor = IsCursorOverDeleteButton() ? Cursors.Hand : Cursors.Default;
+
+            if (!_drawDeleteButton) {
+                _drawDeleteButton = true;
+                Redraw();
+            }
+        }
+
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
@@ -159,7 +185,16 @@ namespace FerretLib.WinForms.Controls
         }
         protected override void OnPaint(PaintEventArgs e)
         {
-            if (!isDisposing && backbuffer != null) e.Graphics.DrawImage(backbuffer, Point.Empty);
+            if (!isDisposing && backbuffer != null)
+                e.Graphics.DrawImage(backbuffer, Point.Empty);
+        }
+        #endregion
+
+        #region Misc logic
+        private Rectangle _deleteButtonRegion;
+        private bool IsCursorOverDeleteButton()
+        {
+            return _deleteButtonRegion.Contains(PointToClient(Cursor.Position));
         }
         #endregion
     }
