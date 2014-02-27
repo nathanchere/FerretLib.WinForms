@@ -5,7 +5,9 @@ WinForms controls, helpers etc.
 
 Will gradually move relevant code from individual projects to here. Current requirement is .Net Framework 3.5. I'll try to keep requirements to a minimum but can't see it going any lower than 3.5.
 
-**UPDATE**: now available as a Nuget package (27-Feb-2014). Will try to keep it updated but if you notice it significantly lagging behind the GitHub repo please let me know.  
+**UPDATE**: now available as a Nuget package (27-Feb-2014). Will try to keep it updated but if you notice it significantly lagging behind the GitHub repo please let me know.
+
+[![Send me a tweet](http://nathanchere.github.io/twitter_tweet.png)](https://twitter.com/intent/user?screen_name=nathanchere "Send me a tweet") [![Follow me](http://nathanchere.github.io/twitter_follow.png)](https://twitter.com/intent/user?screen_name=nathanchere "Follow me") [![Build status](https://ci-beta.appveyor.com/api/projects/status/ew99dvcd7yjfibf1)](https://ci-beta.appveyor.com/project/nathanchere/ferretlib-winforms)
 
 Controls
 --------
