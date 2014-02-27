@@ -59,9 +59,9 @@
             this.trackBarR.Location = new System.Drawing.Point(17, 6);
             this.trackBarR.Maximum = 255;
             this.trackBarR.Name = "trackBarR";
-            this.trackBarR.Size = new System.Drawing.Size(103, 45);
+            this.trackBarR.Size = new System.Drawing.Size(103, 29);
             this.trackBarR.SmallChange = 16;
-            this.trackBarR.TabIndex = 0;
+            this.trackBarR.TabIndex = 4;
             this.trackBarR.TickFrequency = 64;
             this.trackBarR.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             // 
@@ -76,7 +76,7 @@
             0});
             this.numR.Name = "numR";
             this.numR.Size = new System.Drawing.Size(44, 20);
-            this.numR.TabIndex = 1;
+            this.numR.TabIndex = 0;
             // 
             // numG
             // 
@@ -89,7 +89,7 @@
             0});
             this.numG.Name = "numG";
             this.numG.Size = new System.Drawing.Size(44, 20);
-            this.numG.TabIndex = 3;
+            this.numG.TabIndex = 1;
             // 
             // trackBarG
             // 
@@ -98,9 +98,9 @@
             this.trackBarG.Location = new System.Drawing.Point(17, 41);
             this.trackBarG.Maximum = 255;
             this.trackBarG.Name = "trackBarG";
-            this.trackBarG.Size = new System.Drawing.Size(103, 45);
+            this.trackBarG.Size = new System.Drawing.Size(103, 29);
             this.trackBarG.SmallChange = 16;
-            this.trackBarG.TabIndex = 2;
+            this.trackBarG.TabIndex = 5;
             this.trackBarG.TickFrequency = 64;
             this.trackBarG.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             // 
@@ -115,7 +115,7 @@
             0});
             this.numA.Name = "numA";
             this.numA.Size = new System.Drawing.Size(44, 20);
-            this.numA.TabIndex = 7;
+            this.numA.TabIndex = 3;
             this.numA.Value = new decimal(new int[] {
             255,
             0,
@@ -129,9 +129,9 @@
             this.trackBarA.Location = new System.Drawing.Point(17, 106);
             this.trackBarA.Maximum = 255;
             this.trackBarA.Name = "trackBarA";
-            this.trackBarA.Size = new System.Drawing.Size(103, 45);
+            this.trackBarA.Size = new System.Drawing.Size(103, 29);
             this.trackBarA.SmallChange = 16;
-            this.trackBarA.TabIndex = 6;
+            this.trackBarA.TabIndex = 7;
             this.trackBarA.TickFrequency = 64;
             this.trackBarA.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trackBarA.Value = 255;
@@ -147,7 +147,7 @@
             0});
             this.numB.Name = "numB";
             this.numB.Size = new System.Drawing.Size(44, 20);
-            this.numB.TabIndex = 5;
+            this.numB.TabIndex = 2;
             // 
             // trackBarB
             // 
@@ -156,9 +156,9 @@
             this.trackBarB.Location = new System.Drawing.Point(17, 74);
             this.trackBarB.Maximum = 255;
             this.trackBarB.Name = "trackBarB";
-            this.trackBarB.Size = new System.Drawing.Size(103, 45);
+            this.trackBarB.Size = new System.Drawing.Size(103, 29);
             this.trackBarB.SmallChange = 16;
-            this.trackBarB.TabIndex = 4;
+            this.trackBarB.TabIndex = 6;
             this.trackBarB.TickFrequency = 64;
             this.trackBarB.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             // 
