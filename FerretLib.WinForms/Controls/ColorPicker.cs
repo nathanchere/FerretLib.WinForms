@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace FerretLib.WinForms.Controls
@@ -16,7 +11,7 @@ namespace FerretLib.WinForms.Controls
 
         public ColorPicker()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         private Color _value;
@@ -39,9 +34,7 @@ namespace FerretLib.WinForms.Controls
             trackBarR.ValueChanged += (o, args) => SyncValue(numR, (TrackBar)o);
             trackBarG.ValueChanged += (o, args) => SyncValue(numG, (TrackBar)o);
             trackBarB.ValueChanged += (o, args) => SyncValue(numB, (TrackBar)o);
-            trackBarA.ValueChanged += (o, args) => SyncValue(numA, (TrackBar)o);
-
-            picColor.Image = new Bitmap(128,128);
+            trackBarA.ValueChanged += (o, args) => SyncValue(numA, (TrackBar)o);            
             UpdateColor();
         }
 
@@ -58,20 +51,24 @@ namespace FerretLib.WinForms.Controls
         {
             int value = Convert.ToInt32(number.Value);
             if (value == trackbar.Value) return;
-                        
-            number.Value = value;
+
+            number.Value = trackbar.Value;
             UpdateColor();
         }
 
         private void UpdateColor()
-        {
+        {            
             R = (byte)trackBarR.Value;
             G = (byte)trackBarG.Value;
             B = (byte)trackBarB.Value;
             A = (byte)trackBarA.Value;
 
-            using (var g = Graphics.FromImage(picColor.Image))
+            var image = new Bitmap(128, 58);
+            using (var g = Graphics.FromImage(image))
+            {
                 g.Clear(Color.FromArgb(A, R, G, B));
+            }
+            picColor.Image = image;
 
             if (ColorChanged != null) ColorChanged(this, Value);
         }

@@ -43,11 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\ColourPicker.cs">
+    <Compile Include="Controls\ColorPicker.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\ColourPicker.Designer.cs">
-      <DependentUpon>ColourPicker.cs</DependentUpon>
+    <Compile Include="Controls\ColorPicker.Designer.cs">
+      <DependentUpon>ColorPicker.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\TagLabelControl.cs">
       <SubType>UserControl</SubType>
@@ -72,8 +72,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controls\ColourPicker.resx">
-      <DependentUpon>ColourPicker.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\ColorPicker.resx">
+      <DependentUpon>ColorPicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\TagLabelControl.resx">
       <DependentUpon>TagLabelControl.cs</DependentUpon>

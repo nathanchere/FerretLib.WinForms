@@ -32,22 +32,31 @@ namespace FerretLib.WinForms.Demo
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.tagList = new FerretLib.WinForms.Controls.TagListControl();
+            this.colorPicker1 = new FerretLib.WinForms.Controls.ColorPicker();
             this.SuspendLayout();
             // 
             // tagList
             // 
-            this.tagList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tagList.Location = new System.Drawing.Point(0, 0);
+            this.tagList.Location = new System.Drawing.Point(413, 126);
             this.tagList.Name = "tagList";
-            this.tagList.Size = new System.Drawing.Size(617, 280);
+            this.tagList.Size = new System.Drawing.Size(319, 181);
             this.tagList.TabIndex = 0;
             this.tagList.Tags = ((System.Collections.Generic.List<string>)(resources.GetObject("tagList.Tags")));
+            // 
+            // colorPicker1
+            // 
+            this.colorPicker1.Location = new System.Drawing.Point(12, 12);
+            this.colorPicker1.Name = "colorPicker1";
+            this.colorPicker1.Size = new System.Drawing.Size(315, 140);
+            this.colorPicker1.TabIndex = 1;
+            this.colorPicker1.Value = System.Drawing.Color.Empty;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(617, 280);
+            this.ClientSize = new System.Drawing.Size(783, 358);
+            this.Controls.Add(this.colorPicker1);
             this.Controls.Add(this.tagList);
             this.Name = "frmMain";
             this.Text = "FerretLib.WinForms demo";
@@ -58,6 +67,7 @@ namespace FerretLib.WinForms.Demo
         #endregion
 
         private TagListControl tagList;
+        private ColorPicker colorPicker1;
     }
 }
 
