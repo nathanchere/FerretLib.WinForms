@@ -11,7 +11,7 @@ namespace FerretLib.WinForms.Controls
 
         public ColorPicker()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         private Color _value;
@@ -63,7 +63,7 @@ namespace FerretLib.WinForms.Controls
             B = (byte)trackBarB.Value;
             A = (byte)trackBarA.Value;
 
-            var image = new Bitmap(128, 58);
+            var image = new Bitmap(128, 128);
             using (var g = Graphics.FromImage(image))
             {
                 g.Clear(Color.FromArgb(A, R, G, B));
