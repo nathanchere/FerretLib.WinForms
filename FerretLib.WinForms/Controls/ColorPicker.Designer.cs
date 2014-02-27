@@ -40,7 +40,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picColor = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numG)).BeginInit();
@@ -49,7 +49,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBarA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarB)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picColor)).BeginInit();
             this.SuspendLayout();
             // 
             // trackBarR
@@ -186,15 +186,15 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "A";
             // 
-            // pictureBox1
+            // picColor
             // 
-            this.pictureBox1.BackgroundImage = global::FerretLib.WinForms.Properties.Resources.transparency;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(178, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(132, 132);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
+            this.picColor.BackgroundImage = global::FerretLib.WinForms.Properties.Resources.transparency;
+            this.picColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.picColor.Location = new System.Drawing.Point(178, 3);
+            this.picColor.Name = "picColor";
+            this.picColor.Size = new System.Drawing.Size(132, 132);
+            this.picColor.TabIndex = 8;
+            this.picColor.TabStop = false;
             // 
             // ColorPicker
             // 
@@ -204,7 +204,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picColor);
             this.Controls.Add(this.numA);
             this.Controls.Add(this.trackBarA);
             this.Controls.Add(this.numB);
@@ -224,7 +224,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBarA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarB)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picColor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,7 +240,7 @@
         private System.Windows.Forms.TrackBar trackBarA;
         private System.Windows.Forms.NumericUpDown numB;
         private System.Windows.Forms.TrackBar trackBarB;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picColor;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
