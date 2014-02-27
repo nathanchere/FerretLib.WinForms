@@ -43,6 +43,7 @@ namespace FerretLib.WinForms.Demo
             this.colorPicker1.Name = "colorPicker1";
             this.colorPicker1.Size = new System.Drawing.Size(315, 140);
             this.colorPicker1.TabIndex = 1;
+            this.colorPicker1.TabStop = false;
             this.colorPicker1.Value = System.Drawing.Color.Empty;
             // 
             // tagList

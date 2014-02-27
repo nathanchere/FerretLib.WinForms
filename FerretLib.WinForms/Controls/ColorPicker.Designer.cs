@@ -62,6 +62,7 @@
             this.trackBarR.Size = new System.Drawing.Size(103, 29);
             this.trackBarR.SmallChange = 16;
             this.trackBarR.TabIndex = 4;
+            this.trackBarR.TabStop = false;
             this.trackBarR.TickFrequency = 64;
             this.trackBarR.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             // 
@@ -101,6 +102,7 @@
             this.trackBarG.Size = new System.Drawing.Size(103, 29);
             this.trackBarG.SmallChange = 16;
             this.trackBarG.TabIndex = 5;
+            this.trackBarG.TabStop = false;
             this.trackBarG.TickFrequency = 64;
             this.trackBarG.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             // 
@@ -132,6 +134,7 @@
             this.trackBarA.Size = new System.Drawing.Size(103, 29);
             this.trackBarA.SmallChange = 16;
             this.trackBarA.TabIndex = 7;
+            this.trackBarA.TabStop = false;
             this.trackBarA.TickFrequency = 64;
             this.trackBarA.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trackBarA.Value = 255;
@@ -159,6 +162,7 @@
             this.trackBarB.Size = new System.Drawing.Size(103, 29);
             this.trackBarB.SmallChange = 16;
             this.trackBarB.TabIndex = 6;
+            this.trackBarB.TabStop = false;
             this.trackBarB.TickFrequency = 64;
             this.trackBarB.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             // 
