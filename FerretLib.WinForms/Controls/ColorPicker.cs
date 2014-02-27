@@ -9,12 +9,14 @@ using System.Windows.Forms;
 
 namespace FerretLib.WinForms.Controls
 {
-    public partial class ColourPicker : UserControl
+    public partial class ColorPicker : UserControl
     {
-        public ColourPicker()
+        public ColorPicker()
         {
             InitializeComponent();
         }
+
+        public Color Color { get; set; }
 
         private void ColourPicker_Load(object sender, EventArgs e)
         {

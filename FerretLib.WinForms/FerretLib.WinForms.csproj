@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\ColourPicker.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\ColourPicker.Designer.cs">
       <DependentUpon>ColourPicker.cs</DependentUpon>
@@ -72,6 +72,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\ColourPicker.resx">
+      <DependentUpon>ColourPicker.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\TagLabelControl.resx">
       <DependentUpon>TagLabelControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -96,6 +99,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\tagLabel_background_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transparency.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

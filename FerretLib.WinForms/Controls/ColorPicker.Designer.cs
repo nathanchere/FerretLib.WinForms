@@ -1,6 +1,6 @@
 ﻿namespace FerretLib.WinForms.Controls
 {
-    partial class ColourPicker
+    partial class ColorPicker
     {
         /// <summary> 
         /// Required designer variable.
@@ -196,7 +196,7 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
-            // ColourPicker
+            // ColorPicker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -213,7 +213,7 @@
             this.Controls.Add(this.trackBarG);
             this.Controls.Add(this.numR);
             this.Controls.Add(this.trackBarR);
-            this.Name = "ColourPicker";
+            this.Name = "ColorPicker";
             this.Size = new System.Drawing.Size(315, 140);
             this.Load += new System.EventHandler(this.ColourPicker_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarR)).EndInit();
