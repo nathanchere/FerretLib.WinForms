@@ -34,8 +34,19 @@ namespace FerretLib.WinForms.Controls
             trackBarR.ValueChanged += (o, args) => SyncValue(numR, (TrackBar)o);
             trackBarG.ValueChanged += (o, args) => SyncValue(numG, (TrackBar)o);
             trackBarB.ValueChanged += (o, args) => SyncValue(numB, (TrackBar)o);
-            trackBarA.ValueChanged += (o, args) => SyncValue(numA, (TrackBar)o);            
+            trackBarA.ValueChanged += (o, args) => SyncValue(numA, (TrackBar)o);
+
+            numR.GotFocus += (o, args) => SelectValueOnFocus((NumericUpDown)o);
+            numG.GotFocus += (o, args) => SelectValueOnFocus((NumericUpDown)o);
+            numB.GotFocus += (o, args) => SelectValueOnFocus((NumericUpDown)o);
+            numA.GotFocus += (o, args) => SelectValueOnFocus((NumericUpDown)o);
+
             UpdateColor();
+        }
+
+        private static void SelectValueOnFocus(NumericUpDown control)
+        {
+            control.Select(0, control.Text.Length);
         }
 
         private void SyncValue(TrackBar trackbar, NumericUpDown number)

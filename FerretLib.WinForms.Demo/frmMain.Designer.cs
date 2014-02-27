@@ -38,6 +38,8 @@ namespace FerretLib.WinForms.Demo
             // colorPicker1
             // 
             this.colorPicker1.Location = new System.Drawing.Point(12, 12);
+            this.colorPicker1.MaximumSize = new System.Drawing.Size(9999, 140);
+            this.colorPicker1.MinimumSize = new System.Drawing.Size(250, 140);
             this.colorPicker1.Name = "colorPicker1";
             this.colorPicker1.Size = new System.Drawing.Size(315, 140);
             this.colorPicker1.TabIndex = 1;
