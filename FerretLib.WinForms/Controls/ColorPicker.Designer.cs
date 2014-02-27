@@ -54,10 +54,12 @@
             // 
             // trackBarR
             // 
+            this.trackBarR.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBarR.Location = new System.Drawing.Point(17, 6);
             this.trackBarR.Maximum = 255;
             this.trackBarR.Name = "trackBarR";
-            this.trackBarR.Size = new System.Drawing.Size(90, 45);
+            this.trackBarR.Size = new System.Drawing.Size(103, 45);
             this.trackBarR.SmallChange = 16;
             this.trackBarR.TabIndex = 0;
             this.trackBarR.TickFrequency = 64;
@@ -65,34 +67,38 @@
             // 
             // numR
             // 
-            this.numR.Location = new System.Drawing.Point(113, 6);
+            this.numR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numR.Location = new System.Drawing.Point(115, 10);
             this.numR.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.numR.Name = "numR";
-            this.numR.Size = new System.Drawing.Size(51, 20);
+            this.numR.Size = new System.Drawing.Size(44, 20);
             this.numR.TabIndex = 1;
             // 
             // numG
             // 
-            this.numG.Location = new System.Drawing.Point(113, 40);
+            this.numG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numG.Location = new System.Drawing.Point(115, 44);
             this.numG.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.numG.Name = "numG";
-            this.numG.Size = new System.Drawing.Size(51, 20);
+            this.numG.Size = new System.Drawing.Size(44, 20);
             this.numG.TabIndex = 3;
             // 
             // trackBarG
             // 
+            this.trackBarG.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBarG.Location = new System.Drawing.Point(17, 41);
             this.trackBarG.Maximum = 255;
             this.trackBarG.Name = "trackBarG";
-            this.trackBarG.Size = new System.Drawing.Size(90, 45);
+            this.trackBarG.Size = new System.Drawing.Size(103, 45);
             this.trackBarG.SmallChange = 16;
             this.trackBarG.TabIndex = 2;
             this.trackBarG.TickFrequency = 64;
@@ -100,14 +106,15 @@
             // 
             // numA
             // 
-            this.numA.Location = new System.Drawing.Point(113, 106);
+            this.numA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numA.Location = new System.Drawing.Point(115, 110);
             this.numA.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.numA.Name = "numA";
-            this.numA.Size = new System.Drawing.Size(51, 20);
+            this.numA.Size = new System.Drawing.Size(44, 20);
             this.numA.TabIndex = 7;
             this.numA.Value = new decimal(new int[] {
             255,
@@ -117,10 +124,12 @@
             // 
             // trackBarA
             // 
+            this.trackBarA.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBarA.Location = new System.Drawing.Point(17, 106);
             this.trackBarA.Maximum = 255;
             this.trackBarA.Name = "trackBarA";
-            this.trackBarA.Size = new System.Drawing.Size(90, 45);
+            this.trackBarA.Size = new System.Drawing.Size(103, 45);
             this.trackBarA.SmallChange = 16;
             this.trackBarA.TabIndex = 6;
             this.trackBarA.TickFrequency = 64;
@@ -129,22 +138,25 @@
             // 
             // numB
             // 
-            this.numB.Location = new System.Drawing.Point(113, 72);
+            this.numB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numB.Location = new System.Drawing.Point(115, 76);
             this.numB.Maximum = new decimal(new int[] {
             255,
             0,
             0,
             0});
             this.numB.Name = "numB";
-            this.numB.Size = new System.Drawing.Size(51, 20);
+            this.numB.Size = new System.Drawing.Size(44, 20);
             this.numB.TabIndex = 5;
             // 
             // trackBarB
             // 
+            this.trackBarB.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBarB.Location = new System.Drawing.Point(17, 74);
             this.trackBarB.Maximum = 255;
             this.trackBarB.Name = "trackBarB";
-            this.trackBarB.Size = new System.Drawing.Size(90, 45);
+            this.trackBarB.Size = new System.Drawing.Size(103, 45);
             this.trackBarB.SmallChange = 16;
             this.trackBarB.TabIndex = 4;
             this.trackBarB.TickFrequency = 64;
@@ -153,7 +165,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 8);
+            this.label1.Location = new System.Drawing.Point(4, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(15, 13);
             this.label1.TabIndex = 9;
@@ -162,7 +174,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 42);
+            this.label2.Location = new System.Drawing.Point(4, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(15, 13);
             this.label2.TabIndex = 10;
@@ -171,7 +183,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 74);
+            this.label3.Location = new System.Drawing.Point(4, 81);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(14, 13);
             this.label3.TabIndex = 11;
@@ -180,7 +192,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 108);
+            this.label4.Location = new System.Drawing.Point(4, 115);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(14, 13);
             this.label4.TabIndex = 12;
@@ -188,9 +200,10 @@
             // 
             // picColor
             // 
+            this.picColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picColor.BackgroundImage = global::FerretLib.WinForms.Properties.Resources.transparency;
             this.picColor.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picColor.Location = new System.Drawing.Point(178, 3);
+            this.picColor.Location = new System.Drawing.Point(163, 3);
             this.picColor.Name = "picColor";
             this.picColor.Size = new System.Drawing.Size(132, 132);
             this.picColor.TabIndex = 8;
@@ -213,8 +226,10 @@
             this.Controls.Add(this.trackBarG);
             this.Controls.Add(this.numR);
             this.Controls.Add(this.trackBarR);
+            this.MaximumSize = new System.Drawing.Size(9999, 140);
+            this.MinimumSize = new System.Drawing.Size(250, 140);
             this.Name = "ColorPicker";
-            this.Size = new System.Drawing.Size(315, 140);
+            this.Size = new System.Drawing.Size(300, 140);
             this.Load += new System.EventHandler(this.ColourPicker_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBarR)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numR)).EndInit();
