@@ -73,6 +73,7 @@ namespace FerretLib.WinForms.Controls
             G = (byte)trackBarG.Value;
             B = (byte)trackBarB.Value;
             A = (byte)trackBarA.Value;
+            _value = Color.FromArgb(A,R,G,B);
 
             var image = new Bitmap(128, 128);
             using (var g = Graphics.FromImage(image))
