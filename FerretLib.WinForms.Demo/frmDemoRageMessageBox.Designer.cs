@@ -63,14 +63,15 @@
             this.optionsMessageBoxButtons.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.optionsMessageBoxButtons.Location = new System.Drawing.Point(440, 12);
             this.optionsMessageBoxButtons.Name = "optionsMessageBoxButtons";
-            this.optionsMessageBoxButtons.Size = new System.Drawing.Size(149, 345);
+            this.optionsMessageBoxButtons.Size = new System.Drawing.Size(149, 479);
             this.optionsMessageBoxButtons.TabIndex = 2;
             // 
             // btnShow
             // 
-            this.btnShow.Location = new System.Drawing.Point(440, 363);
+            this.btnShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShow.Location = new System.Drawing.Point(68, 452);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(304, 58);
+            this.btnShow.Size = new System.Drawing.Size(366, 39);
             this.btnShow.TabIndex = 3;
             this.btnShow.Text = "ShowDialog";
             this.btnShow.UseVisualStyleBackColor = true;
@@ -92,12 +93,12 @@
             this.optionsMessageBoxIcons.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.optionsMessageBoxIcons.Location = new System.Drawing.Point(595, 12);
             this.optionsMessageBoxIcons.Name = "optionsMessageBoxIcons";
-            this.optionsMessageBoxIcons.Size = new System.Drawing.Size(149, 345);
+            this.optionsMessageBoxIcons.Size = new System.Drawing.Size(149, 479);
             this.optionsMessageBoxIcons.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(68, 382);
+            this.button1.Location = new System.Drawing.Point(68, 407);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(366, 39);
             this.button1.TabIndex = 7;
@@ -120,14 +121,14 @@
             this.txtDetail.Multiline = true;
             this.txtDetail.Name = "txtDetail";
             this.txtDetail.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDetail.Size = new System.Drawing.Size(366, 162);
+            this.txtDetail.Size = new System.Drawing.Size(366, 187);
             this.txtDetail.TabIndex = 5;
             // 
             // frmDemoRageMessageBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(753, 430);
+            this.ClientSize = new System.Drawing.Size(753, 496);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDetail);
