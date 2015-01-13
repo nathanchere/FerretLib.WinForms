@@ -30,6 +30,7 @@ namespace FerretLib.WinForms
                 };
 
                 optionsMessageBoxButtons.Controls.Add(radioButton);
+                radioButton.Checked = true;
             }
 
             foreach (var option in Enum.GetValues(typeof(RageMessageBox.RageMessageBoxIcon)))
@@ -41,6 +42,7 @@ namespace FerretLib.WinForms
                 };
 
                 optionsMessageBoxIcons.Controls.Add(radioButton);
+                radioButton.Checked = true;
             }
         }
 

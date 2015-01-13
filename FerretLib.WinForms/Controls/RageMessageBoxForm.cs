@@ -121,6 +121,10 @@ namespace FerretLib.WinForms.Controls
                 txtDetail.Visible = true;
                 Height = panelButtons.Height + panelButtons.Top + 10;
             }
+            else
+            {
+                txtDetail.Visible = false;
+            }
         }
 
         public void AddButton(string caption, DialogResult result)
@@ -128,8 +132,8 @@ namespace FerretLib.WinForms.Controls
             var button = new Button
             {
                 Text = caption,
-                Width = 70,
-                Height = 33,
+                Width = 90,
+                Height = 45,
             };
 
             var parent = this;
@@ -187,25 +191,25 @@ namespace FerretLib.WinForms.Controls
             this.panelButtons.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.panelButtons.Location = new System.Drawing.Point(173, 106);
             this.panelButtons.Name = "panelButtons";
-            this.panelButtons.Size = new System.Drawing.Size(249, 39);
+            this.panelButtons.Size = new System.Drawing.Size(249, 51);
             this.panelButtons.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(176, 3);
+            this.button1.Location = new System.Drawing.Point(156, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(70, 33);
+            this.button1.Size = new System.Drawing.Size(90, 45);
             this.button1.TabIndex = 3;
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // txtDetail
             // 
-            this.txtDetail.Location = new System.Drawing.Point(12, 152);
+            this.txtDetail.Location = new System.Drawing.Point(12, 176);
             this.txtDetail.Multiline = true;
             this.txtDetail.Name = "txtDetail";
             this.txtDetail.ReadOnly = true;
-            this.txtDetail.Size = new System.Drawing.Size(410, 103);
+            this.txtDetail.Size = new System.Drawing.Size(410, 79);
             this.txtDetail.TabIndex = 4;
             // 
             // RageMessageBoxForm
@@ -222,6 +226,7 @@ namespace FerretLib.WinForms.Controls
             this.MinimizeBox = false;
             this.Name = "RageMessageBoxForm";
             this.Text = "RageMessageBox";
+            this.Load += new System.EventHandler(this.RageMessageBoxForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).EndInit();
             this.panelButtons.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -248,5 +253,10 @@ namespace FerretLib.WinForms.Controls
         public FlowLayoutPanel panelButtons;
         public Button button1;
         #endregion
+
+        private void RageMessageBoxForm_Load(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
