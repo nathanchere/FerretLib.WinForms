@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using FerretLib.WinForms.Controls;
 
 namespace FerretLib.WinForms
@@ -28,13 +29,51 @@ namespace FerretLib.WinForms
                     Text = option.ToString(),
                 };
 
-                panelDialogOptions.Controls.Add(radioButton);
+                optionsMessageBoxButtons.Controls.Add(radioButton);
             }
+
+            foreach (var option in Enum.GetValues(typeof(RageMessageBox.RageMessageBoxIcon)))
+            {
+                var radioButton = new RadioButton
+                {
+                    Tag = option,
+                    Text = option.ToString(),
+                };
+
+                optionsMessageBoxIcons.Controls.Add(radioButton);
+            }
+        }
+
+        private RageMessageBox.RageMessageBoxButtons GetSelectedRageMessageBoxButtons()
+        {
+            foreach (var control in optionsMessageBoxButtons.Controls)
+            {
+                var option = control as RadioButton;
+                if (option == null || !option.Checked) continue;
+                return (RageMessageBox.RageMessageBoxButtons)(option.Tag);
+            }
+            throw new Exception("Nothing selected");
+        }
+
+        private RageMessageBox.RageMessageBoxIcon GetSelectedRageMessageBoxIcon()
+        {
+            foreach (var control in optionsMessageBoxIcons.Controls)
+            {
+                var option = control as RadioButton;
+                if (option == null || !option.Checked) continue;
+                return (RageMessageBox.RageMessageBoxIcon)(option.Tag);
+            }
+            throw new Exception("Nothing selected");
         }
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-            RageMessageBox.Show("something");
+            RageMessageBox.Show(txtMainText.Text.Trim(), "FUUUUUUUUUU", GetSelectedRageMessageBoxButtons(), GetSelectedRageMessageBoxIcon());
+        }
+
+        private void btnPadText_Click(object sender, EventArgs e)
+        {
+            txtMainText.AppendText(@"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat urna sit amet mi ultrices, in luctus nulla finibus. Aenean quis mauris efficitur, mattis velit sed, tincidunt elit. Integer ac est risus. Aenean dictum rutrum odio sit amet venenatis. Aenean ut metus in odio congue faucibus vitae non velit. Sed tincidunt interdum elit quis commodo. Vivamus quis nunc congue, fringilla dui in, facilisis ante. Mauris a urna vitae orci iaculis rhoncus. Donec viverra, orci at sollicitudin aliquam, odio risus sodales nunc, at lobortis nibh ex ut augue. Ut nec ultrices risus, eu pulvinar nibh." + Environment.NewLine + Environment.NewLine);
         }
     }
 }
