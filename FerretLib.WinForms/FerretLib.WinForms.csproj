@@ -82,6 +82,9 @@
     <EmbeddedResource Include="Controls\RageMessageBox.resx">
       <DependentUpon>RageMessageBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\RageMessageBoxForm.resx">
+      <DependentUpon>RageMessageBoxForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\TagLabelControl.resx">
       <DependentUpon>TagLabelControl.cs</DependentUpon>
     </EmbeddedResource>

@@ -13,31 +13,37 @@ namespace FerretLib.WinForms.Controls
 
         public void InitializeButtons(RageMessageBox.RageMessageBoxButtons buttons)
         {
-            panelButtons.Controls.Clear();            
+            panelButtons.Controls.Clear();
 
-            if (buttons == RageMessageBox.RageMessageBoxButtons.OK || buttons == RageMessageBox.RageMessageBoxButtons.OKCancel)
-                AddButton("OK", DialogResult.OK);
+            if (buttons == RageMessageBox.RageMessageBoxButtons.FFFFFUUUUUUUU || buttons == RageMessageBox.RageMessageBoxButtons.Derp || buttons == RageMessageBox.RageMessageBoxButtons.LOL)
+                AddButton(buttons.ToString(), DialogResult.OK);
 
             if (buttons == RageMessageBox.RageMessageBoxButtons.AbortRetryIgnore)
-                AddButton("Abort", DialogResult.Abort);
+                AddButton("Ignore", DialogResult.Ignore);
 
-            if (buttons == RageMessageBox.RageMessageBoxButtons.AbortRetryIgnore || buttons == RageMessageBox.RageMessageBoxButtons.RetryCancel)
-                AddButton("Retry", DialogResult.Retry);
+            if (buttons == RageMessageBox.RageMessageBoxButtons.RetryCancel || buttons == RageMessageBox.RageMessageBoxButtons.OKCancel || buttons == RageMessageBox.RageMessageBoxButtons.YesNoCancel)
+                AddButton("Cancel", DialogResult.Cancel);
 
             if (buttons == RageMessageBox.RageMessageBoxButtons.YesNo || buttons == RageMessageBox.RageMessageBoxButtons.YesNoCancel)
             {
                 AddButton("Yes", DialogResult.Yes);
                 AddButton("No", DialogResult.No);
+
+            if (buttons == RageMessageBox.RageMessageBoxButtons.AbortRetryIgnore || buttons == RageMessageBox.RageMessageBoxButtons.RetryCancel)
+                AddButton("Retry", DialogResult.Retry);
             }
 
-            if (buttons == RageMessageBox.RageMessageBoxButtons.RetryCancel || buttons == RageMessageBox.RageMessageBoxButtons.OKCancel || buttons == RageMessageBox.RageMessageBoxButtons.YesNoCancel)
-                AddButton("Cancel", DialogResult.Cancel);
-
             if (buttons == RageMessageBox.RageMessageBoxButtons.AbortRetryIgnore)
-                AddButton("Ignore", DialogResult.Ignore);
+                AddButton("Abort", DialogResult.Abort);
 
-            if (buttons == RageMessageBox.RageMessageBoxButtons.FFFFFUUUUUUUU || buttons == RageMessageBox.RageMessageBoxButtons.Derp || buttons == RageMessageBox.RageMessageBoxButtons.LOL)
-                AddButton(buttons.ToString(), DialogResult.OK);
+            if (buttons == RageMessageBox.RageMessageBoxButtons.OK || buttons == RageMessageBox.RageMessageBoxButtons.OKCancel)
+                AddButton("OK", DialogResult.OK);
+        }
+
+        public void InitializeDialogLayout() // If you're allergic to magic numbers look away now
+        {
+            Height = lblMessage.Height + 118;
+            Width = lblMessage.Width + 200;
         }
 
         public void AddButton(string caption, DialogResult result)
@@ -89,37 +95,37 @@ namespace FerretLib.WinForms.Controls
             this.lblMessage.AutoSize = true;
             this.lblMessage.Location = new System.Drawing.Point(170, 20);
             this.lblMessage.MaximumSize = new System.Drawing.Size(450, 0);
-            this.lblMessage.MinimumSize = new System.Drawing.Size(0, 74);
+            this.lblMessage.MinimumSize = new System.Drawing.Size(250, 74);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(28, 74);
+            this.lblMessage.Size = new System.Drawing.Size(250, 74);
             this.lblMessage.TabIndex = 1;
             this.lblMessage.Text = "aerg";
             // 
             // panelButtons
             // 
-            this.panelButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                                                                             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelButtons.Controls.Add(this.button1);
             this.panelButtons.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.panelButtons.Location = new System.Drawing.Point(173, 107);
             this.panelButtons.Name = "panelButtons";
-            this.panelButtons.Size = new System.Drawing.Size(453, 39);
+            this.panelButtons.Size = new System.Drawing.Size(249, 39);
             this.panelButtons.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(380, 3);
+            this.button1.Location = new System.Drawing.Point(176, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(70, 33);
             this.button1.TabIndex = 3;
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // RageMessageBox
+            // RageMessageBoxForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 153);
+            this.ClientSize = new System.Drawing.Size(434, 153);
             this.Controls.Add(this.panelButtons);
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.pictureBox1);

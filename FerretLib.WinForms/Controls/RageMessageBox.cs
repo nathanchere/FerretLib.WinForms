@@ -18,7 +18,7 @@ namespace FerretLib.WinForms.Controls
             messageBox.lblMessage.Text = text;
             // TODO: set image
             messageBox.Text = title;
-            //InitializeDialogLayout();
+            messageBox.InitializeDialogLayout();
 
             messageBox.ShowDialog();
             return messageBox.Result;
