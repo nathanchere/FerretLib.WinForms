@@ -225,8 +225,7 @@ namespace FerretLib.WinForms.Controls
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RageMessageBoxForm";
-            this.Text = "RageMessageBox";
-            this.Load += new System.EventHandler(this.RageMessageBoxForm_Load);
+            this.Text = "RageMessageBox";            
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).EndInit();
             this.panelButtons.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -235,8 +234,6 @@ namespace FerretLib.WinForms.Controls
         }
 
         #endregion
-
-        private TextBox txtDetail;
 
         private System.ComponentModel.IContainer components = null;
         protected override void Dispose(bool disposing)
@@ -252,11 +249,7 @@ namespace FerretLib.WinForms.Controls
         public Label lblMessage;
         public FlowLayoutPanel panelButtons;
         public Button button1;
+        public TextBox txtDetail;
         #endregion
-
-        private void RageMessageBoxForm_Load(object sender, System.EventArgs e)
-        {
-
-        }
     }
 }

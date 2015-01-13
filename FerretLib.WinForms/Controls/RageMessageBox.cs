@@ -11,12 +11,13 @@ namespace FerretLib.WinForms.Controls
 {
     public static class RageMessageBox
     {
-        public static DialogResult Show(string text, string title = "", RageMessageBoxButtons buttons = RageMessageBoxButtons.OK, RageMessageBoxIcon icon = RageMessageBoxIcon.RageMild)
+        public static DialogResult Show(string text, string title = "", string detail = "", RageMessageBoxButtons buttons = RageMessageBoxButtons.OK, RageMessageBoxIcon icon = RageMessageBoxIcon.RageMild)
         {
             var messageBox = new RageMessageBoxForm();
             messageBox.InitializeButtons(buttons);
             messageBox.InitializeIcon(icon);
             messageBox.lblMessage.Text = text;
+            messageBox.txtDetail.Text = text;
             messageBox.Text = title;
             messageBox.InitializeDialogLayout();
 

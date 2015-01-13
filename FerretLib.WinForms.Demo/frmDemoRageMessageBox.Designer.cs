@@ -36,7 +36,7 @@
             this.optionsMessageBoxIcons = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDetail = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtMainText
@@ -103,6 +103,7 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "Append some lorum ipsem";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -113,14 +114,14 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Detail text";
             // 
-            // textBox1
+            // txtDetail
             // 
-            this.textBox1.Location = new System.Drawing.Point(68, 214);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(366, 162);
-            this.textBox1.TabIndex = 5;
+            this.txtDetail.Location = new System.Drawing.Point(68, 214);
+            this.txtDetail.Multiline = true;
+            this.txtDetail.Name = "txtDetail";
+            this.txtDetail.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDetail.Size = new System.Drawing.Size(366, 162);
+            this.txtDetail.TabIndex = 5;
             // 
             // frmDemoRageMessageBox
             // 
@@ -129,7 +130,7 @@
             this.ClientSize = new System.Drawing.Size(753, 430);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDetail);
             this.Controls.Add(this.optionsMessageBoxIcons);
             this.Controls.Add(this.btnPadText);
             this.Controls.Add(this.btnShow);
@@ -154,6 +155,6 @@
         private System.Windows.Forms.FlowLayoutPanel optionsMessageBoxIcons;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDetail;
     }
 }
