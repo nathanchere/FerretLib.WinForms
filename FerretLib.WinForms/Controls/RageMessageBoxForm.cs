@@ -24,14 +24,15 @@ namespace FerretLib.WinForms.Controls
             if (buttons == RageMessageBox.RageMessageBoxButtons.RetryCancel || buttons == RageMessageBox.RageMessageBoxButtons.OKCancel || buttons == RageMessageBox.RageMessageBoxButtons.YesNoCancel)
                 AddButton("Cancel", DialogResult.Cancel);
 
-            if (buttons == RageMessageBox.RageMessageBoxButtons.YesNo || buttons == RageMessageBox.RageMessageBoxButtons.YesNoCancel)
+            if (buttons == RageMessageBox.RageMessageBoxButtons.YesNo ||
+                buttons == RageMessageBox.RageMessageBoxButtons.YesNoCancel)
             {
                 AddButton("Yes", DialogResult.Yes);
                 AddButton("No", DialogResult.No);
+            }
 
             if (buttons == RageMessageBox.RageMessageBoxButtons.AbortRetryIgnore || buttons == RageMessageBox.RageMessageBoxButtons.RetryCancel)
-                AddButton("Retry", DialogResult.Retry);
-            }
+                AddButton("Retry", DialogResult.Retry);            
 
             if (buttons == RageMessageBox.RageMessageBoxButtons.AbortRetryIgnore)
                 AddButton("Abort", DialogResult.Abort);
