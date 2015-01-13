@@ -20,7 +20,7 @@ namespace FerretLib.WinForms
 
         private void frmDemoRageMessageBox_Load(object sender, EventArgs e)
         {
-            foreach (var option in Enum.GetValues(typeof (RageMessageBox.RageMessageBoxButtons)))
+            foreach (var option in Enum.GetValues(typeof(RageMessageBox.RageMessageBoxButtons)))
             {
                 var radioButton = new RadioButton
                 {
@@ -30,6 +30,11 @@ namespace FerretLib.WinForms
 
                 panelDialogOptions.Controls.Add(radioButton);
             }
+        }
+
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+            RageMessageBox.Show("something");
         }
     }
 }

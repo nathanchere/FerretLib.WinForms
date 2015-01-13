@@ -31,6 +31,7 @@
             this.txtMainText = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelDialogOptions = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnShow = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtMainText
@@ -58,11 +59,22 @@
             this.panelDialogOptions.Size = new System.Drawing.Size(249, 197);
             this.panelDialogOptions.TabIndex = 2;
             // 
+            // btnShow
+            // 
+            this.btnShow.Location = new System.Drawing.Point(26, 182);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(109, 36);
+            this.btnShow.TabIndex = 3;
+            this.btnShow.Text = "ShowDialog";
+            this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            // 
             // frmDemoRageMessageBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 229);
+            this.Controls.Add(this.btnShow);
             this.Controls.Add(this.panelDialogOptions);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtMainText);
@@ -79,5 +91,6 @@
         private System.Windows.Forms.TextBox txtMainText;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel panelDialogOptions;
+        private System.Windows.Forms.Button btnShow;
     }
 }
