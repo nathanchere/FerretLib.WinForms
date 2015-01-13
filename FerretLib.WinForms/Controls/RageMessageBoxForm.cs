@@ -92,16 +92,16 @@ namespace FerretLib.WinForms.Controls
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 20);
+            this.pictureBox1.Location = new System.Drawing.Point(26, 13);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(141, 126);
+            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // lblMessage
             // 
             this.lblMessage.AutoSize = true;
-            this.lblMessage.Location = new System.Drawing.Point(170, 20);
+            this.lblMessage.Location = new System.Drawing.Point(170, 19);
             this.lblMessage.MaximumSize = new System.Drawing.Size(450, 0);
             this.lblMessage.MinimumSize = new System.Drawing.Size(250, 74);
             this.lblMessage.Name = "lblMessage";
