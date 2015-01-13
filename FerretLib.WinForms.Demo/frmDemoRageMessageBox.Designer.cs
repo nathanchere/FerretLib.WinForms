@@ -34,6 +34,9 @@
             this.btnShow = new System.Windows.Forms.Button();
             this.btnPadText = new System.Windows.Forms.Button();
             this.optionsMessageBoxIcons = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // txtMainText
@@ -41,7 +44,8 @@
             this.txtMainText.Location = new System.Drawing.Point(68, 12);
             this.txtMainText.Multiline = true;
             this.txtMainText.Name = "txtMainText";
-            this.txtMainText.Size = new System.Drawing.Size(244, 138);
+            this.txtMainText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtMainText.Size = new System.Drawing.Size(366, 151);
             this.txtMainText.TabIndex = 0;
             // 
             // label1
@@ -57,16 +61,16 @@
             // 
             this.optionsMessageBoxButtons.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.optionsMessageBoxButtons.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.optionsMessageBoxButtons.Location = new System.Drawing.Point(318, 12);
+            this.optionsMessageBoxButtons.Location = new System.Drawing.Point(440, 12);
             this.optionsMessageBoxButtons.Name = "optionsMessageBoxButtons";
-            this.optionsMessageBoxButtons.Size = new System.Drawing.Size(165, 200);
+            this.optionsMessageBoxButtons.Size = new System.Drawing.Size(149, 345);
             this.optionsMessageBoxButtons.TabIndex = 2;
             // 
             // btnShow
             // 
-            this.btnShow.Location = new System.Drawing.Point(203, 176);
+            this.btnShow.Location = new System.Drawing.Point(440, 363);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(109, 36);
+            this.btnShow.Size = new System.Drawing.Size(304, 58);
             this.btnShow.TabIndex = 3;
             this.btnShow.Text = "ShowDialog";
             this.btnShow.UseVisualStyleBackColor = true;
@@ -74,28 +78,58 @@
             // 
             // btnPadText
             // 
-            this.btnPadText.Location = new System.Drawing.Point(65, 149);
+            this.btnPadText.Location = new System.Drawing.Point(68, 169);
             this.btnPadText.Name = "btnPadText";
-            this.btnPadText.Size = new System.Drawing.Size(247, 21);
+            this.btnPadText.Size = new System.Drawing.Size(366, 39);
             this.btnPadText.TabIndex = 4;
             this.btnPadText.Text = "Append some lorum ipsem";
             this.btnPadText.UseVisualStyleBackColor = true;
             this.btnPadText.Click += new System.EventHandler(this.btnPadText_Click);
             // 
-            // flowLayoutPanel1
+            // optionsMessageBoxIcons
             // 
             this.optionsMessageBoxIcons.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.optionsMessageBoxIcons.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.optionsMessageBoxIcons.Location = new System.Drawing.Point(489, 12);
+            this.optionsMessageBoxIcons.Location = new System.Drawing.Point(595, 12);
             this.optionsMessageBoxIcons.Name = "optionsMessageBoxIcons";
-            this.optionsMessageBoxIcons.Size = new System.Drawing.Size(165, 200);
+            this.optionsMessageBoxIcons.Size = new System.Drawing.Size(149, 345);
             this.optionsMessageBoxIcons.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(68, 382);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(366, 39);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Append some lorum ipsem";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 217);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Detail text";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(68, 214);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(366, 162);
+            this.textBox1.TabIndex = 5;
             // 
             // frmDemoRageMessageBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(749, 333);
+            this.ClientSize = new System.Drawing.Size(753, 430);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.optionsMessageBoxIcons);
             this.Controls.Add(this.btnPadText);
             this.Controls.Add(this.btnShow);
@@ -118,5 +152,8 @@
         private System.Windows.Forms.Button btnShow;
         private System.Windows.Forms.Button btnPadText;
         private System.Windows.Forms.FlowLayoutPanel optionsMessageBoxIcons;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
