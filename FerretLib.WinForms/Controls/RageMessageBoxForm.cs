@@ -5,6 +5,7 @@ namespace FerretLib.WinForms.Controls
 {
     internal class RageMessageBoxForm : Form
     {
+        private const int MarginHeight = 10;
         public DialogResult Result { get; private set; }
 
         public RageMessageBoxForm()
@@ -113,17 +114,22 @@ namespace FerretLib.WinForms.Controls
 
         public void InitializeDialogLayout() // If you're allergic to magic numbers look away now
         {
-            Height = lblMessage.Height + 118;
+            int borderWidth = (int)((Width - ClientSize.Width) * 0.5f);
+            int titlebarHeight = Height - ClientSize.Height - (2 * borderWidth);
+            
+
+            panelButtons.Top = lblMessage.Height + (MarginHeight * 2);
             Width = lblMessage.Width + 200;
-            panelButtons.Top = lblMessage.Top + lblMessage.Height + 6;
             if (!string.IsNullOrEmpty(txtDetail.Text))
             {
                 txtDetail.Visible = true;
-                Height = panelButtons.Height + panelButtons.Top + 10;
+                Top = lblMessage.Height + panelButtons.Height + (MarginHeight * 3);
+                Height = lblMessage.Height + panelButtons.Height + txtDetail.Height + (MarginHeight * 4) + titlebarHeight + (2 * borderWidth);
             }
             else
             {
                 txtDetail.Visible = false;
+                Height = lblMessage.Height + panelButtons.Height + (MarginHeight * 3) + titlebarHeight + (2 * borderWidth);                
             }
         }
 
@@ -166,7 +172,7 @@ namespace FerretLib.WinForms.Controls
             // 
             // picIcon
             // 
-            this.picIcon.Location = new System.Drawing.Point(26, 13);
+            this.picIcon.Location = new System.Drawing.Point(12, 7);
             this.picIcon.Name = "picIcon";
             this.picIcon.Size = new System.Drawing.Size(128, 128);
             this.picIcon.TabIndex = 0;
@@ -175,7 +181,7 @@ namespace FerretLib.WinForms.Controls
             // lblMessage
             // 
             this.lblMessage.AutoSize = true;
-            this.lblMessage.Location = new System.Drawing.Point(170, 19);
+            this.lblMessage.Location = new System.Drawing.Point(146, 7);
             this.lblMessage.MaximumSize = new System.Drawing.Size(450, 0);
             this.lblMessage.MinimumSize = new System.Drawing.Size(250, 74);
             this.lblMessage.Name = "lblMessage";
@@ -189,14 +195,14 @@ namespace FerretLib.WinForms.Controls
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelButtons.Controls.Add(this.button1);
             this.panelButtons.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.panelButtons.Location = new System.Drawing.Point(173, 106);
+            this.panelButtons.Location = new System.Drawing.Point(149, 93);
             this.panelButtons.Name = "panelButtons";
-            this.panelButtons.Size = new System.Drawing.Size(249, 51);
+            this.panelButtons.Size = new System.Drawing.Size(273, 51);
             this.panelButtons.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(156, 3);
+            this.button1.Location = new System.Drawing.Point(180, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 45);
             this.button1.TabIndex = 3;
@@ -205,7 +211,7 @@ namespace FerretLib.WinForms.Controls
             // 
             // txtDetail
             // 
-            this.txtDetail.Location = new System.Drawing.Point(12, 176);
+            this.txtDetail.Location = new System.Drawing.Point(12, 150);
             this.txtDetail.Multiline = true;
             this.txtDetail.Name = "txtDetail";
             this.txtDetail.ReadOnly = true;
@@ -216,7 +222,7 @@ namespace FerretLib.WinForms.Controls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 261);
+            this.ClientSize = new System.Drawing.Size(434, 210);
             this.Controls.Add(this.txtDetail);
             this.Controls.Add(this.panelButtons);
             this.Controls.Add(this.lblMessage);
@@ -224,8 +230,9 @@ namespace FerretLib.WinForms.Controls
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(450, 0);
             this.Name = "RageMessageBoxForm";
-            this.Text = "RageMessageBox";            
+            this.Text = "RageMessageBox";
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).EndInit();
             this.panelButtons.ResumeLayout(false);
             this.ResumeLayout(false);

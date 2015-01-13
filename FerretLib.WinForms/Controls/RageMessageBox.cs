@@ -17,7 +17,7 @@ namespace FerretLib.WinForms.Controls
             messageBox.InitializeButtons(buttons);
             messageBox.InitializeIcon(icon);
             messageBox.lblMessage.Text = text;
-            messageBox.txtDetail.Text = text;
+            messageBox.txtDetail.Text = detail;
             messageBox.Text = title;
             messageBox.InitializeDialogLayout();
 
