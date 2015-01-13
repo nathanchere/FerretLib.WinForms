@@ -1,7 +1,4 @@
-﻿using FerretLib.WinForms;
-using FerretLib.WinForms.Controls;
-
-namespace FerretLib.WinForms.Demo
+﻿namespace FerretLib.WinForms
 {
     partial class frmMain
     {
@@ -16,7 +13,8 @@ namespace FerretLib.WinForms.Demo
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null)) {
+            if (disposing && (components != null))
+            {
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -30,46 +28,46 @@ namespace FerretLib.WinForms.Demo
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.colorPicker1 = new FerretLib.WinForms.Controls.ColorPicker();
-            this.tagList = new FerretLib.WinForms.Controls.TagListControl();
+            this.btnShowColorPicker = new System.Windows.Forms.Button();
+            this.btnShowRageMessageBox = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // colorPicker1
+            // btnShowColorPicker
             // 
-            this.colorPicker1.Location = new System.Drawing.Point(12, 12);
-            this.colorPicker1.MaximumSize = new System.Drawing.Size(9999, 140);
-            this.colorPicker1.MinimumSize = new System.Drawing.Size(250, 140);
-            this.colorPicker1.Name = "colorPicker1";
-            this.colorPicker1.Size = new System.Drawing.Size(315, 140);
-            this.colorPicker1.TabIndex = 1;
-            this.colorPicker1.Value = System.Drawing.Color.Empty;
+            this.btnShowColorPicker.Location = new System.Drawing.Point(12, 12);
+            this.btnShowColorPicker.Name = "btnShowColorPicker";
+            this.btnShowColorPicker.Size = new System.Drawing.Size(215, 78);
+            this.btnShowColorPicker.TabIndex = 0;
+            this.btnShowColorPicker.Text = "Color Picker demo";
+            this.btnShowColorPicker.UseVisualStyleBackColor = true;
+            this.btnShowColorPicker.Click += new System.EventHandler(this.btnShowColorPicker_Click);
             // 
-            // tagList
+            // btnShowRageMessageBox
             // 
-            this.tagList.Location = new System.Drawing.Point(12, 195);
-            this.tagList.Name = "tagList";
-            this.tagList.Size = new System.Drawing.Size(319, 181);
-            this.tagList.TabIndex = 0;
-            this.tagList.Tags = ((System.Collections.Generic.List<string>)(resources.GetObject("tagList.Tags")));
+            this.btnShowRageMessageBox.Location = new System.Drawing.Point(12, 96);
+            this.btnShowRageMessageBox.Name = "btnShowRageMessageBox";
+            this.btnShowRageMessageBox.Size = new System.Drawing.Size(215, 78);
+            this.btnShowRageMessageBox.TabIndex = 1;
+            this.btnShowRageMessageBox.Text = "RageMessageBox demo";
+            this.btnShowRageMessageBox.UseVisualStyleBackColor = true;
+            this.btnShowRageMessageBox.Click += new System.EventHandler(this.btnShowRageMessageBox_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(336, 159);
-            this.Controls.Add(this.colorPicker1);
-            this.Controls.Add(this.tagList);
+            this.ClientSize = new System.Drawing.Size(887, 403);
+            this.Controls.Add(this.btnShowRageMessageBox);
+            this.Controls.Add(this.btnShowColorPicker);
             this.Name = "frmMain";
-            this.Text = "FerretLib.WinForms demo";
+            this.Text = "frmMain";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private TagListControl tagList;
-        private ColorPicker colorPicker1;
+        private System.Windows.Forms.Button btnShowColorPicker;
+        private System.Windows.Forms.Button btnShowRageMessageBox;
     }
 }
-

@@ -46,7 +46,7 @@ namespace FerretLib.WinForms.Controls
         {
             InitializeComponent();
             InitializeButtons(buttons);
-            InitializeDialogLayout();
+            //InitializeDialogLayout();
         }
 
         private void InitializeButtons(RageMessageBoxDefaultButton buttons)

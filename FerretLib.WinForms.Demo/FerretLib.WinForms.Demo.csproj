@@ -45,6 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmDemoColorPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDemoColorPicker.Designer.cs">
+      <DependentUpon>frmDemoColorPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDemoRageMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDemoRageMessageBox.Designer.cs">
+      <DependentUpon>frmDemoRageMessageBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -53,6 +65,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmDemoColorPicker.resx">
+      <DependentUpon>frmDemoColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDemoRageMessageBox.resx">
+      <DependentUpon>frmDemoRageMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
