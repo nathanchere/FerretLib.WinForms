@@ -1,4 +1,5 @@
 using System.Windows.Forms;
+using FerretLib.WinForms.Properties;
 
 namespace FerretLib.WinForms.Controls
 {
@@ -41,6 +42,75 @@ namespace FerretLib.WinForms.Controls
                 AddButton("OK", DialogResult.OK);
         }
 
+        public void InitializeIcon(RageMessageBox.RageMessageBoxIcon icon)
+        {
+            switch (icon)
+            {
+                case RageMessageBox.RageMessageBoxIcon.BiteLip:
+                    picIcon.Image = Resources.RageIcon_BiteLip;
+                    break;
+
+                case RageMessageBox.RageMessageBoxIcon.Derp:
+                    picIcon.Image = Resources.RageIcon_Derp;
+                    break;
+
+                case RageMessageBox.RageMessageBoxIcon.Drool:
+                    picIcon.Image = Resources.RageIcon_Drool;
+                    break;
+
+                case RageMessageBox.RageMessageBoxIcon.Happy:
+                    picIcon.Image = Resources.RageIcon_Happy;
+                    break;
+
+                case RageMessageBox.RageMessageBoxIcon.RageFull:
+                    picIcon.Image = Resources.RageIcon_RageFull;
+                    break;
+
+                case RageMessageBox.RageMessageBoxIcon.RageLight:
+                    picIcon.Image = Resources.RageIcon_RageLight;
+                    break;
+
+                case RageMessageBox.RageMessageBoxIcon.RageMild:
+                    picIcon.Image = Resources.RageIcon_RageMild;
+                    break;
+
+                case RageMessageBox.RageMessageBoxIcon.Stressed:
+                    picIcon.Image = Resources.RageIcon_Stressed;
+                    break;
+
+                case RageMessageBox.RageMessageBoxIcon.Troll:
+                    picIcon.Image = Resources.RageIcon_Troll;
+                    break;
+
+                case RageMessageBox.RageMessageBoxIcon.TrollDerp:
+                    picIcon.Image = Resources.RageIcon_TrollDerp;
+                    break;
+
+                case RageMessageBox.RageMessageBoxIcon.Unhappy:
+                    picIcon.Image = Resources.RageIcon_Unhappy;
+                    break;
+
+                case RageMessageBox.RageMessageBoxIcon.WeepAnxious:
+                    picIcon.Image = Resources.RageIcon_WeepAnxious;
+                    break;
+
+                case RageMessageBox.RageMessageBoxIcon.WeepHappy:
+                    picIcon.Image = Resources.RageIcon_WeepHappy;
+                    break;
+
+                case RageMessageBox.RageMessageBoxIcon.YUNo:
+                    picIcon.Image = Resources.RageIcon_YUNo;
+                    break;
+                
+                case RageMessageBox.RageMessageBoxIcon.Suspicious:
+                    picIcon.Image = Resources.RageIcon_Suspicious;
+                    break;
+
+                default:
+                    return; // TODO: throw here? Mm..
+            }
+        }
+
         public void InitializeDialogLayout() // If you're allergic to magic numbers look away now
         {
             Height = lblMessage.Height + 118;
@@ -81,22 +151,22 @@ namespace FerretLib.WinForms.Controls
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picIcon = new System.Windows.Forms.PictureBox();
             this.lblMessage = new System.Windows.Forms.Label();
             this.panelButtons = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.txtDetail = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picIcon)).BeginInit();
             this.panelButtons.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // picIcon
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(26, 13);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.picIcon.Location = new System.Drawing.Point(26, 13);
+            this.picIcon.Name = "picIcon";
+            this.picIcon.Size = new System.Drawing.Size(128, 128);
+            this.picIcon.TabIndex = 0;
+            this.picIcon.TabStop = false;
             // 
             // lblMessage
             // 
@@ -146,13 +216,13 @@ namespace FerretLib.WinForms.Controls
             this.Controls.Add(this.txtDetail);
             this.Controls.Add(this.panelButtons);
             this.Controls.Add(this.lblMessage);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picIcon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RageMessageBoxForm";
             this.Text = "RageMessageBox";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picIcon)).EndInit();
             this.panelButtons.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -173,7 +243,7 @@ namespace FerretLib.WinForms.Controls
             base.Dispose(disposing);
         }
 
-        public PictureBox pictureBox1;
+        public PictureBox picIcon;
         public Label lblMessage;
         public FlowLayoutPanel panelButtons;
         public Button button1;

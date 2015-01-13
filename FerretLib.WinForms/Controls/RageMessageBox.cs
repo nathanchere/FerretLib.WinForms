@@ -40,15 +40,21 @@ namespace FerretLib.WinForms.Controls
         public enum RageMessageBoxIcon
         {
             None,
-            FFFFFUUUUUUUU,
-            SuperRage,
+            BiteLip,
             Derp,
-            Trolling,
-            Facepalm,
-            EpicWin,
+            Drool,
+            Happy,
+            RageFull,
+            RageLight,
+            RageMild,
+            Stressed,
+            Troll,
+            TrollDerp,
+            Unhappy,
+            WeepAnxious,
+            WeepHappy,
+            Suspicious,
             YUNo,
         }
-
-        
     }
 }
