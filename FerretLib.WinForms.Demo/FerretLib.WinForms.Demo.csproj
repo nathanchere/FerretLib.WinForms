@@ -106,6 +106,51 @@
       <Name>FerretLib.WinForms</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\derp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\happy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\joybitelip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ragefull.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ragelite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ragemild.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\suspicious.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\troll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trollderp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unhappy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\weep1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\weep2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\yuno.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
