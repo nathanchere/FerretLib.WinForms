@@ -222,7 +222,7 @@ namespace FerretLib.WinForms.Controls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 210);
+            this.ClientSize = new System.Drawing.Size(434, 238);
             this.Controls.Add(this.txtDetail);
             this.Controls.Add(this.panelButtons);
             this.Controls.Add(this.lblMessage);
