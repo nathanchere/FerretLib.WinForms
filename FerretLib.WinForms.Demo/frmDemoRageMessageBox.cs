@@ -27,6 +27,8 @@ namespace FerretLib.WinForms
                 {
                     Tag = option,
                     Text = option.ToString(),
+                    Padding = new Padding(1),
+                    Margin = new Padding(1),
                 };
 
                 optionsMessageBoxButtons.Controls.Add(radioButton);

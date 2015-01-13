@@ -62,8 +62,9 @@
             this.optionsMessageBoxButtons.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.optionsMessageBoxButtons.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.optionsMessageBoxButtons.Location = new System.Drawing.Point(440, 12);
+            this.optionsMessageBoxButtons.Margin = new System.Windows.Forms.Padding(1);
             this.optionsMessageBoxButtons.Name = "optionsMessageBoxButtons";
-            this.optionsMessageBoxButtons.Size = new System.Drawing.Size(149, 479);
+            this.optionsMessageBoxButtons.Size = new System.Drawing.Size(149, 559);
             this.optionsMessageBoxButtons.TabIndex = 2;
             // 
             // btnShow
@@ -71,7 +72,7 @@
             this.btnShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShow.Location = new System.Drawing.Point(68, 452);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(366, 39);
+            this.btnShow.Size = new System.Drawing.Size(366, 119);
             this.btnShow.TabIndex = 3;
             this.btnShow.Text = "ShowDialog";
             this.btnShow.UseVisualStyleBackColor = true;
@@ -93,7 +94,7 @@
             this.optionsMessageBoxIcons.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.optionsMessageBoxIcons.Location = new System.Drawing.Point(595, 12);
             this.optionsMessageBoxIcons.Name = "optionsMessageBoxIcons";
-            this.optionsMessageBoxIcons.Size = new System.Drawing.Size(149, 479);
+            this.optionsMessageBoxIcons.Size = new System.Drawing.Size(149, 559);
             this.optionsMessageBoxIcons.TabIndex = 3;
             // 
             // button1
@@ -128,7 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(753, 496);
+            this.ClientSize = new System.Drawing.Size(753, 583);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDetail);
