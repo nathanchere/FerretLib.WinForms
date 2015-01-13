@@ -45,6 +45,12 @@ namespace FerretLib.WinForms.Controls
         {
             Height = lblMessage.Height + 118;
             Width = lblMessage.Width + 200;
+            panelButtons.Top = lblMessage.Top + lblMessage.Height + 6;
+            if (!string.IsNullOrEmpty(txtDetail.Text))
+            {
+                txtDetail.Visible = true;
+                Height = panelButtons.Height + panelButtons.Top + 10;
+            }
         }
 
         public void AddButton(string caption, DialogResult result)
@@ -79,6 +85,7 @@ namespace FerretLib.WinForms.Controls
             this.lblMessage = new System.Windows.Forms.Label();
             this.panelButtons = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
+            this.txtDetail = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelButtons.SuspendLayout();
             this.SuspendLayout();
@@ -104,11 +111,11 @@ namespace FerretLib.WinForms.Controls
             // 
             // panelButtons
             // 
-            this.panelButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.panelButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelButtons.Controls.Add(this.button1);
             this.panelButtons.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.panelButtons.Location = new System.Drawing.Point(173, 107);
+            this.panelButtons.Location = new System.Drawing.Point(173, 106);
             this.panelButtons.Name = "panelButtons";
             this.panelButtons.Size = new System.Drawing.Size(249, 39);
             this.panelButtons.TabIndex = 3;
@@ -122,11 +129,21 @@ namespace FerretLib.WinForms.Controls
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // txtDetail
+            // 
+            this.txtDetail.Location = new System.Drawing.Point(12, 152);
+            this.txtDetail.Multiline = true;
+            this.txtDetail.Name = "txtDetail";
+            this.txtDetail.ReadOnly = true;
+            this.txtDetail.Size = new System.Drawing.Size(410, 103);
+            this.txtDetail.TabIndex = 4;
+            // 
             // RageMessageBoxForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 153);
+            this.ClientSize = new System.Drawing.Size(434, 261);
+            this.Controls.Add(this.txtDetail);
             this.Controls.Add(this.panelButtons);
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.pictureBox1);
@@ -143,6 +160,8 @@ namespace FerretLib.WinForms.Controls
         }
 
         #endregion
+
+        private TextBox txtDetail;
 
         private System.ComponentModel.IContainer components = null;
         protected override void Dispose(bool disposing)
