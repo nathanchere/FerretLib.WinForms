@@ -49,6 +49,12 @@
     <Compile Include="Controls\ColorPicker.Designer.cs">
       <DependentUpon>ColorPicker.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\RageMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\RageMessageBox.Designer.cs">
+      <DependentUpon>RageMessageBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TagLabelControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -74,6 +80,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Controls\ColorPicker.resx">
       <DependentUpon>ColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\RageMessageBox.resx">
+      <DependentUpon>RageMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\TagLabelControl.resx">
       <DependentUpon>TagLabelControl.cs</DependentUpon>
