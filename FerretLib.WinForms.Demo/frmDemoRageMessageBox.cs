@@ -68,7 +68,9 @@ namespace FerretLib.WinForms
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-            RageMessageBox.Show(txtMainText.Text.Trim(), "FUUUUUUUUUU", GetSelectedRageMessageBoxButtons(), GetSelectedRageMessageBoxIcon());
+            var result = RageMessageBox.Show(txtMainText.Text.Trim(), "FUUUUUUUUUU", GetSelectedRageMessageBoxButtons(), GetSelectedRageMessageBoxIcon());
+            MessageBox.Show(result.ToString());
+
         }
 
         private void btnPadText_Click(object sender, EventArgs e)

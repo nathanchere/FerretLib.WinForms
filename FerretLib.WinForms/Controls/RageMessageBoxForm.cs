@@ -27,8 +27,8 @@ namespace FerretLib.WinForms.Controls
             if (buttons == RageMessageBox.RageMessageBoxButtons.YesNo ||
                 buttons == RageMessageBox.RageMessageBoxButtons.YesNoCancel)
             {
-                AddButton("Yes", DialogResult.Yes);
                 AddButton("No", DialogResult.No);
+                AddButton("Yes", DialogResult.Yes);                
             }
 
             if (buttons == RageMessageBox.RageMessageBoxButtons.AbortRetryIgnore || buttons == RageMessageBox.RageMessageBoxButtons.RetryCancel)
